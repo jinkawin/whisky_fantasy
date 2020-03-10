@@ -1,7 +1,7 @@
 from django.urls import path
-from data_crawler import views
+from app import views
 
-app_name = 'data_crawler'
+app_name = 'app'
 
 urlpatterns = [
     path('', views.index, name='index')

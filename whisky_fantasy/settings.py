@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'data_crawler',
-    'libs'
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -80,11 +79,8 @@ WSGI_APPLICATION = 'whisky_fantasy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'whisky_fantasy',
-        'HOST': 'mongodb+srv://admin:admin@cluster0-pi8vr.mongodb.net/test',
-        'USER': 'admin',
-        'PASSWORD': 'admin'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
