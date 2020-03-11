@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <!--    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/sign-in/">-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+
+
 </head>
-<body>
+
+<body style="background-color: #406E8E;">
+
+    <div class="container" style="width: 600px;">
+        <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
+            <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
+        </div>
+
+
+        <div class="row" style="background-color:white;">
+            <form class="form-signin" role="form" method="post" action=".">
+
+                <div class="btn-group btn-group-sm" style="width: inherit;">
+                    <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
+                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;">Merchant</button>
+                </div><br /><br />
+
+                <label for="id_email">E-mail :</label>
+                <input type="text" name="email" id="id_email" class="form-control" placeholder="email" required
+                    autofocus>
+                <label for="id_username">Username :</label>
+                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username"
+                    required>
+                <label for="id_password1">Password :</label>
+                <input type="password" name="password" id="id_password1" class="form-control" placeholder="Password"
+                    required>
+                <label for="id_password2">Confirm Password :</label>
+                <input type="password" name="password" id="id_password2" class="form-control" placeholder="Password"
+                    required><br />
+                <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
+                    style="background-color: #818181;color: white;">Sign Up</button>
+
+            </form>
+        </div>
+        <div class="row" style="background-color:black;height: 40px;">
+            <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
+                Already a Member?
+                <a href="">Log In</a>
+            </div>
+        </div>
+
+    </div>
 
 </body>
+
 </html>
