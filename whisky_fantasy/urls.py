@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
-from data_crawler import views
+from app import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('data_crawler/', include('data_crawler.urls')),
+    path('app/', include('app.urls')),
 
     path('admin/', admin.site.urls),
 
