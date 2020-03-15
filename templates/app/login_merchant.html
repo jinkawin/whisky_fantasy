@@ -35,9 +35,10 @@
 
         <div class="row" style="background-color:white;">
             <form class="form-signin" role="form" method="post" action="." >
+                {% csrf_token %}
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
-                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;">Customer</button>
+                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;" onclick="location = '/app/cust_login'">Customer</button>
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Merchant</button>
                 </div><br /><br />
 

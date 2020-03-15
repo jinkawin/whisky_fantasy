@@ -1,4 +1,7 @@
+
 from django.db import models
+
+
 
 class Customer(models.Model):
     cust_username = models.CharField(max_length=255, null=False, unique=True)

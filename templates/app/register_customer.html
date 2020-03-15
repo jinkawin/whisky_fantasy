@@ -35,11 +35,13 @@
 
         <div class="row" style="background-color:white;">
             <form class="form-signin" role="form" method="post" action=".">
+                {% csrf_token %}
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
-                    <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
-                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;">Merchant</button>
+                    <button class="btn" style="background-color: #D29062;color:white;">Customer</button>
+                    <button class="btn" style="border-color: #D29062;color: #d29062;" onclick="location='/app/merchant_signup/'">Merchant</button>
                 </div><br /><br />
+                <input type="hidden" name="role" value=0>
 
                 <label for="id_email">E-mail :</label>
                 <input type="text" name="email" id="id_email" class="form-control" placeholder="email" required
