@@ -7,7 +7,6 @@ window.fbAsyncInit = function() {
     });
 
     FB.AppEvents.logPageView();
-
 };
 
 (function(d, s, id){
@@ -18,26 +17,32 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-}
 
-function statusChangeCallback(response) {
-    if (response.status === 'connected') {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', {"fields":"email"}, function (response) {
-            console.log(response);
+$(document).ready(function(){
+    var csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
-            // console.log('Successful login for: ' + response.name);
-            // document.getElementById('status').innerHTML =
-            //   'Thanks for logging in, ' + response.name + '!';
+    $("#facebook-button").click(function(){
+        FB.login(function(response) {
+            if (response.status === 'connected') {
+                console.log('Welcome!  Fetching your information.... ');
+
+                access_token = response.authResponse.accessToken; //get access token
+                user_id = response.authResponse.userID; //get FB UID
+
+                FB.api('/me', {"fields":"email,first_name,last_name"}, function (response) {
+                    console.log(response);
+                    $.post( "facebook_login", { 'fb_obj': response, 'csrfmiddlewaretoken': csrftoken }, function(data) {
+                        console.log(data);
+                    });
+                });
+
+            } else {
+                //user hit cancel button
+                console.log('User cancelled login or did not fully authorize.');
+
+            }
+        }, {
+            scope: 'public_profile,email'
         });
-    } else {
-        // The person is not logged into your app or we are unable to tell.
-        console.log("Else")
-        // document.getElementById('status').innerHTML = 'Please log ' +
-        //   'into this app.';
-    }
-}
+    });
+});

@@ -25,9 +25,8 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action=".">
+            <form class="form-signin" role="form" method="post" action="{% url 'app:merchant_login' %}" >
                 {% csrf_token %}
-
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" onclick="location.href = '{% url 'app:cust_login' %}'"
                         style="border-color: #D29062;color: #d29062;">Customer</button>
@@ -39,18 +38,14 @@
                     autofocus>
                 <label for="id_password">Password :</label>
                 <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
-                    required><br />
-                <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
-                    style="background-color: #818181;color: white;">Log In</button>
-                <p class="text-center">or</p>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sublmit">Login with
-                    Facebook</button>
+                    required><br/>
+                <button class="btn btn-lg btn-block" type="submit" value="Sublmit" style="background-color: #818181;color: white;">Log In</button>
             </form>
         </div>
         <div class="row" style="background-color:black;height: 40px;">
             <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
                 Not a Member?
-                <a href="">Register Here</a>
+                <a href="{% url 'app:merchant_register' %}">Register Here</a>
             </div>
         </div>
 
