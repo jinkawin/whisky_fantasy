@@ -17,6 +17,10 @@
                     <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'" style="border-color: #D29062;color: #d29062;">Merchant</button>
                 </div><br /><br />
 
+                {% if err_msg %}
+                    <p style="color:red;">{{ err_msg }}</p>
+                {% endif %}
+
                 <label for="id_username">Username :</label><br />
                 <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required
                     autofocus>
@@ -25,7 +29,7 @@
                     required><br/>
                 <button class="btn btn-lg btn-block" type="submit" value="Sublmit" style="background-color: #818181;color: white;">Log In</button>
                 <p class="text-center">or</p>
-                <button class="btn btn-lg btn-primary btn-block" onclick="fb_login();">Login with
+                <button class="btn btn-lg btn-primary btn-block" id="facebook-button">Login with
                     Facebook</button>
             </form>
         </div>
