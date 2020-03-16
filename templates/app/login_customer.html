@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
-                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;" onclick="location='/app/merchant_login'">Merchant</button>
+                    <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'" style="border-color: #D29062;color: #d29062;">Merchant</button>
                 </div><br /><br />
 
                 <label for="id_username">Username :</label><br />
@@ -51,6 +51,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock %}

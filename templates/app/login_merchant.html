@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'app/base.html' %}
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,7 @@
 </head>
 
 <body style="background-color: #406E8E;">
+{% block body_block %}
 
     <div class="container" style="width: 600px;">
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
@@ -27,7 +28,7 @@
                 {% csrf_token %}
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
-                    <button type="button" class="btn" style="border-color: #D29062;color: #d29062;" onclick="location = '/app/cust_login'">Customer</button>
+                    <button type="button" class="btn" onclick="location.href = '{% url 'app:cust_login' %}'" style="border-color: #D29062;color: #d29062;">Customer</button>
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Merchant</button>
                 </div><br /><br />
 
@@ -52,6 +53,4 @@
 
     </div>
 
-</body>
-
-</html>
+{% endblock %}

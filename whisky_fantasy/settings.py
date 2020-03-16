@@ -19,6 +19,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 LIBS_DIR = os.path.join(BASE_DIR, "libs")
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -121,11 +122,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
-MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'
+
 
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = 'app:index'
 LOGIN_URL = 'app:cust_login'
 
+# Media - uploaded by user
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
