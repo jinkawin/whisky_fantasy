@@ -2,24 +2,34 @@ from django.shortcuts import render
 
 from app.models import Customer
 from app.form import CustomerForm
+from django.shortcuts import render, redirect
+
+from app.forms import CustomerForm, UserProfileForm
 
 def custRegister(request):
+    registered = False
     if request.method == 'POST':
-        customerForm = CustomerForm(request.POST)
+        user_form = CustomerForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
 
-        if customerForm.is_valid():
-            customer = customerForm.save()
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
 
-            customer.set_password(customer.password)
-            customer.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
 
-            print('---------- SAVED ----------')
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
 
-            # TODO: set user's session
-
+            profile.save()
+            registered = True
         else:
-            print('---------- ERROR ----------')
-            print(customerForm.errors)
-            print(request.POST)
-            print('---------- /ERROR ----------')
-    return render(request, 'app/register_customer.html')
+            print(user_form.errors, profile_form.errors)
+    else:
+        user_form = CustomerForm()
+        profile_form = UserProfileForm()
+
+    return render(request, 'app/register_customer.html',
+                  context={'user_form': user_form, 'profile_form': profile_form, 'registered': registered})

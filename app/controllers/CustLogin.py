@@ -15,10 +15,21 @@ def custLogin(request):
         user = authenticate(username=username, password=password)
 
         if user:
-            login(request, user)
-            print('---------------- LOGGED IN ----------------')
-        else:
-            print('---------------- ERROR ----------------')
-            context_dict['err_msg'] = "username or password is incorrect"
+            if user.is_active:
+                try:
+                    customer = UserProfile.objects.get(user=user)
+                except UserProfile.DoesNotExist:
+                    customer = None
+                if customer.role == '0':
+                    login(request, user)
+                    return redirect(reverse('app:myaccount'))
+                else:
+                    return HttpResponse('Please chose Merchant Login')
 
-    return render(request, 'app/login_customer.html', context=context_dict)
+            else:
+                return HttpResponse('Your account is disabled.')
+        else:
+            print(f"Invalid login details:{username},{password}")
+            return HttpResponse("Invalid login details supplied.")
+    else:
+        return render(request, 'app/login_customer.html')
