@@ -31,10 +31,11 @@
             <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
                     class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a class="p-2 text-dark" href="#">My Account</a></li>
+                <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
                 <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
+                <li><a class="p-2 text-dark" href="{% url 'auth_password_change'%}">Change Password</a></li>
                 <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
-                <li><a class="p-2 text-dark" href="{% url 'app:accounts'%}">Change Password</a></li>
+
             </ul>
         </div>
 

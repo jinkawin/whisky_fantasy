@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -126,4 +127,5 @@ MEDIA_URL = '/media/'
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = 'app:index'
+LOGIN_URL = 'app:cust_login'
 
