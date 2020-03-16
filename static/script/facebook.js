@@ -18,6 +18,33 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+function fb_login(){
+    FB.login(function(response) {
+
+        if (response.authResponse) {
+            console.log('Welcome!  Fetching your information.... ');
+            //console.log(response); // dump complete info
+            access_token = response.authResponse.accessToken; //get access token
+            user_id = response.authResponse.userID; //get FB UID
+
+            FB.api('/me', {"fields":"email"}, function (response) {
+                console.log(response);
+
+                // console.log('Successful login for: ' + response.name);
+                // document.getElementById('status').innerHTML =
+                //   'Thanks for logging in, ' + response.name + '!';
+            });
+
+        } else {
+            //user hit cancel button
+            console.log('User cancelled login or did not fully authorize.');
+
+        }
+    }, {
+        scope: 'public_profile,email'
+    });
+}
+
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
