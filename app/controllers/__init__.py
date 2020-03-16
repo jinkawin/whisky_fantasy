@@ -6,4 +6,3 @@ from .CustRegister import custRegister
 from .MerchantLogin import merchantLogin
 from .MerchantRegister import merchantRegister
 from .Profile import profile
-from .ChangePwd import changePwd

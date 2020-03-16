@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    # 'registration',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +132,5 @@ LOGIN_URL = 'app:cust_login'
 # Media - uploaded by user
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+# AUTH_USER_MODEL = "app.Customer"

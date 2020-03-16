@@ -1,9 +1,11 @@
-from django.shortcuts import render
-
-from app.models import Customer
-from app.form import CustomerForm
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from django.contrib.auth import authenticate, login, logout
+
+from app.tables import UserProfile
+
 
 def custLogin(request):
     context_dict = {}

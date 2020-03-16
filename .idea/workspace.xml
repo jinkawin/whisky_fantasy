@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/login_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/login_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_merchant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/register_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ChangePwd.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CustLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CustLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CustRegister.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CustRegister.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Logout.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Logout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/ChangepwdForm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/CustomerForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/CustomerForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200316_1452.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0007_auto_20200316_1452.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/Customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/UserProfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/UserProfile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/changepwd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whisky_fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisky_fantasy/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +47,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/registration" />
   </component>
   <component name="RecentsManager">
@@ -62,5 +73,11 @@
       <updated>1583590637496</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584387547915">
+      <screen x="0" y="23" width="1366" height="741" />
+    </state>
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1584387547915" />
   </component>
 </project>

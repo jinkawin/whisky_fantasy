@@ -1,7 +1,4 @@
-from django.shortcuts import render
 
-from app.models import Customer
-from app.form import CustomerForm
 from django.shortcuts import render, redirect
 
 from app.forms import CustomerForm, UserProfileForm

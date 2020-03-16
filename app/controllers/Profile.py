@@ -5,6 +5,9 @@ from app.form import CustomerForm
 
 from django.contrib.auth.decorators import login_required
 
+from app.tables import UserProfile
+
+
 @login_required
 def profile(request):
     user_profile = UserProfile.objects.get(user=request.user)
