@@ -132,5 +132,3 @@ LOGIN_URL = 'app:cust_login'
 # Media - uploaded by user
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-
-# AUTH_USER_MODEL = "app.Customer"

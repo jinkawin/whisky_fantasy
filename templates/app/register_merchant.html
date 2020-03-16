@@ -1,6 +1,17 @@
+<!DOCTYPE html>
 {% extends 'app/base.html' %}
 {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color: #406E8E;">
 {% block body_block %}
 
     <div class="container" style="width: 600px;">
@@ -10,7 +21,7 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action="{% url 'app:register_merchant' %}">
+            <form class="form-signin" role="form" method="post" action="{% url 'app:merchant_register' %}">
                 {% csrf_token %}
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" onclick="location.href = '{% url 'app:cust_register' %}'" style="border-color: #D29062;color: #d29062;">Customer</button>
@@ -45,3 +56,5 @@
     </div>
 
 {% endblock %}
+</body>
+</html>
