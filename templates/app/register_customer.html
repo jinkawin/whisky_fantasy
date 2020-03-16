@@ -21,10 +21,10 @@
                 <input type="text" name="cust_email" id="id_email" class="form-control" placeholder="email" required
                     autofocus>
                 <label for="id_username">Username :</label>
-                <input type="text" name="cust_username" id="id_username" class="form-control" placeholder="Username"
+                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username"
                     required>
                 <label for="id_password1">Password :</label>
-                <input type="password" name="cust_password" id="id_password1" class="form-control" placeholder="Password"
+                <input type="password" name="password" id="id_password1" class="form-control" placeholder="Password"
                     required>
                 <label for="id_password2">Confirm Password :</label>
                 <input type="password" name="cust_password_c" id="id_password2" class="form-control" placeholder="Password"
@@ -38,7 +38,7 @@
         <div class="row" style="background-color:black;height: 40px;">
             <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
                 Already a Member?
-                <a href="">Log In</a>
+                <a href="{% url 'app:cust_login' %}">Log In</a>
             </div>
         </div>
 
