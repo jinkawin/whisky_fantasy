@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends 'app/base.html' %}
 {% load static %}
 
@@ -14,7 +15,7 @@
 </head>
 
 <body style="background-color: #406E8E;">
-
+    {% block body_block %}
     <div class="container" style="width: 600px;">
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
             <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
@@ -22,12 +23,13 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action="." >
+            <form class="form-signin" role="form" method="post" action=".">
                 {% csrf_token %}
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
-                    <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'" style="border-color: #D29062;color: #d29062;">Merchant</button>
+                    <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'"
+                        style="border-color: #D29062;color: #d29062;">Merchant</button>
                 </div><br /><br />
 
                 <label for="id_username">Username :</label><br />
@@ -35,8 +37,9 @@
                     autofocus>
                 <label for="id_password">Password :</label>
                 <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
-                    required><br/>
-                <button class="btn btn-lg btn-block" type="submit" value="Sublmit" style="background-color: #818181;color: white;">Log In</button>
+                    required><br />
+                <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
+                    style="background-color: #818181;color: white;">Log In</button>
                 <p class="text-center">or</p>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sublmit">Login with
                     Facebook</button>
@@ -51,4 +54,7 @@
 
     </div>
 
-{% endblock %}
+    {% endblock %}
+</body>
+
+</html>

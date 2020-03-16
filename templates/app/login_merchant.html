@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends 'app/base.html' %}
 {% load static %}
 
@@ -11,11 +12,11 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
 
-    
+
 </head>
 
 <body style="background-color: #406E8E;">
-{% block body_block %}
+    {% block body_block %}
 
     <div class="container" style="width: 600px;">
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
@@ -24,11 +25,12 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action="." >
+            <form class="form-signin" role="form" method="post" action=".">
                 {% csrf_token %}
 
                 <div class="btn-group btn-group-sm" style="width: inherit;">
-                    <button type="button" class="btn" onclick="location.href = '{% url 'app:cust_login' %}'" style="border-color: #D29062;color: #d29062;">Customer</button>
+                    <button type="button" class="btn" onclick="location.href = '{% url 'app:cust_login' %}'"
+                        style="border-color: #D29062;color: #d29062;">Customer</button>
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Merchant</button>
                 </div><br /><br />
 
@@ -37,8 +39,9 @@
                     autofocus>
                 <label for="id_password">Password :</label>
                 <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
-                    required><br/>
-                <button class="btn btn-lg btn-block" type="submit" value="Sublmit" style="background-color: #818181;color: white;">Log In</button>
+                    required><br />
+                <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
+                    style="background-color: #818181;color: white;">Log In</button>
                 <p class="text-center">or</p>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" value="Sublmit">Login with
                     Facebook</button>
@@ -53,4 +56,7 @@
 
     </div>
 
-{% endblock %}
+    {% endblock %}
+</body>
+
+</html>

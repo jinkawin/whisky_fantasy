@@ -1,120 +1,101 @@
-{% extends 'app/base.html' %}
+<!DOCTYPE html>
+
 {% load static %}
-
-{% block body_block %}
-
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
-    style="background-color:#000;">
-    <h5 class="my-0 mr-md-auto font-weight-normal" style="color:#D29062;">Whisky Fantasy</h5>
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello, Melissa<b class="caret"></b></a>
-    <ul class="dropdown-menu">
-        <li><a class="p-2 text-dark" href="#">My Account</a></li>
-        <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
-        <li><a class="p-2 text-dark" href="#">Log Out</a></li>
-    </ul>
-</div>
-
-<div class="container">
-    <div class="row ">
-        <div class="col-md-5 text-center">
-            <h2 style="color: #D29062;">My Account</h2>
-            <img src="/Users/huangyushan/PycharmProjects/whisky_fantasy/static/img.jpg" alt="Picture is lost!"
-                class="p-4" style="width: 325px;height: 337px;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
 
 
-            <head>
-                <meta charset="UTF-8">
-                <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-                    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-                    crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 
 
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-                    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-                    crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-                    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-                    crossorigin="anonymous"></script>
+</head>
 
+<body>
 
-            </head>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
+        style="background-color:#000;">
+        <h5 class="my-0 mr-md-auto font-weight-normal" style="color:#D29062;">Whisky Fantasy</h5>
+        <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
+                class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
+            <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
+            <li><a class="p-2 text-dark" href="{% url 'auth_password_change'%}">Change Password</a></li>
+            <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
 
-            <body>
-                <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
-                    style="background-color:#000;">
-                    <h5 class="my-0 mr-md-auto font-weight-normal" style="color:#D29062;">Whisky Fantasy</h5>
-                    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
-                            class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
-                        <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
-                        <li><a class="p-2 text-dark" href="{% url 'auth_password_change'%}">Change Password</a></li>
-                        <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
+        </ul>
+    </div>
 
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-5 text-center">
+                <h2 style="color: #D29062;">My Account</h2>
+                <img src="/media/{{profile.picture}}/" alt="You have not uploaded a photo!" class="p-4" onclick=""
+                    style="width: 325px;height: 337px;">
+            </div>
 
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-md-5 text-center">
-                            <h2 style="color: #D29062;">My Account</h2>
-                            <img src="/media/{{profile.picture}}/" alt="You have not uploaded a photo!" class="p-4"
-                                onclick="" style="width: 325px;height: 337px;">
-                        </div>
-
-                        <div class="col-md-7">
-                            <form class="form-horizontal" role="form" method="post" action="."
-                                enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <br /><br /><br />
-                                <div class="form-group row">
-                                    <label class="col-sm-2">Username:</label>
-                                    <label id="username" class="font-weight-bold">{{profile.user}}</label>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 " for="id_email" style="padding-top: 5px;">E-mail :</label>
-                                    <input type="text" name="email" id="id_email" class="col-md-8 form-control"
-                                        placeholder="email" value="{{profile.user.email}}" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2">Picture :</label>
-
-                                    <input type="file" name="picture" id="file" onchange="getPhoto(this)" /></div>
-
-                                <div class="form-group row" style="padding-top: 10px;">
-                                    <label class="col-sm-2" for="id_password1">Change Password :</label>
-                                    <input type="password" name="password" id="id_password1"
-                                        class="col-md-8 form-control" placeholder="Password" required>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2" for="id_password2">Confirm Password :</label>
-                                    <input type="password" name="password" id="id_password2"
-                                        class="col-md-8 form-control" placeholder="Password" required><br />
-                                </div>
-
-                                <div class="form-group row">
-
-                                    <button class="btn col-sm-2 " type="submit" value="Sublmit"
-                                        style="background-color: #D29062;color:white;margin-left: 300px;">Save</button>
-                                    <button class="btn col-sm-2" type="button" value="Cancel"
-                                        style="border-color: #D29062;color: #d29062;background-color:white;margin-left: 30px;">Cancel</button>
-
-
-
-
-
-                            </form>
-
-                        </div>
-
+            <div class="col-md-7">
+                <form class="form-horizontal" role="form" method="post" action="." enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <br /><br /><br />
+                    <div class="form-group row">
+                        <label class="col-sm-2">Username:</label>
+                        <label id="username" class="font-weight-bold">{{profile.user}}</label>
                     </div>
 
-                </div>
-                {% endblock %}
+                    <div class="form-group row">
+                        <label class="col-sm-2 " for="id_email" style="padding-top: 5px;">E-mail :</label>
+                        <input type="text" name="email" id="id_email" class="col-md-8 form-control" placeholder="email"
+                            value="{{profile.user.email}}" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2">Picture :</label>
+
+                        <input type="file" name="picture" id="file" onchange="getPhoto(this)" /></div>
+
+                    <div class="form-group row" style="padding-top: 10px;">
+                        <label class="col-sm-2" for="id_password1">Change Password :</label>
+                        <input type="password" name="password" id="id_password1" class="col-md-8 form-control"
+                            placeholder="Password" required>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2" for="id_password2">Confirm Password :</label>
+                        <input type="password" name="password" id="id_password2" class="col-md-8 form-control"
+                            placeholder="Password" required><br />
+                    </div>
+
+                    <div class="form-group row">
+
+                        <button class="btn col-sm-2 " type="submit" value="Sublmit"
+                            style="background-color: #D29062;color:white;margin-left: 300px;">Save</button>
+                        <button class="btn col-sm-2" type="button" value="Cancel"
+                            style="border-color: #D29062;color: #d29062;background-color:white;margin-left: 30px;">Cancel</button>
+
+
+
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
