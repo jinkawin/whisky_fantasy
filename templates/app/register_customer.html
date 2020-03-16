@@ -10,25 +10,26 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action=".">
-
+            <form class="form-signin" role="form" method="post" action="{% url 'app:cust_register' %}">
+                {% csrf_token %}
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
                     <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_register' %}'" style="border-color: #D29062;color: #d29062;">Merchant</button>
                 </div><br /><br />
 
                 <label for="id_email">E-mail :</label>
-                <input type="text" name="email" id="id_email" class="form-control" placeholder="email" required
+                <input type="text" name="cust_email" id="id_email" class="form-control" placeholder="email" required
                     autofocus>
                 <label for="id_username">Username :</label>
-                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username"
+                <input type="text" name="cust_username" id="id_username" class="form-control" placeholder="Username"
                     required>
                 <label for="id_password1">Password :</label>
-                <input type="password" name="password" id="id_password1" class="form-control" placeholder="Password"
+                <input type="password" name="cust_password" id="id_password1" class="form-control" placeholder="Password"
                     required>
                 <label for="id_password2">Confirm Password :</label>
-                <input type="password" name="password" id="id_password2" class="form-control" placeholder="Password"
+                <input type="password" name="cust_password_c" id="id_password2" class="form-control" placeholder="Password"
                     required><br />
+                <input type="text" name="cust_fb_id" id="id_cust_fb_id" class="form-control" hidden><br />
                 <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
                     style="background-color: #818181;color: white;">Sign Up</button>
 

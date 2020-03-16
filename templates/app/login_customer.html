@@ -10,8 +10,8 @@
 
 
         <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action="." >
-
+            <form class="form-signin" role="form" method="post" action="{% url 'app:cust_login' %}" >
+                {% csrf_token %}
                 <div class="btn-group btn-group-sm" style="width: inherit;">
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
                     <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'" style="border-color: #D29062;color: #d29062;">Merchant</button>
