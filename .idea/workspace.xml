@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/CustomerForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/CustomerForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0002_remove_tweet_age.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20200310_2039.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200315_0105.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200316_1339.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0005_auto_20200315_0926.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0005_customer_cust_fb_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20200315_0942.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20200316_1359.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200315_1921.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200316_1452.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0008_remove_customer_cust_fb_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0009_customer_cust_fb_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0010_merge_20200316_2007.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Customer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/register_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/register_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_merchant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whisky_fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisky_fantasy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/data_crawler/mer_transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/mer_transaction.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,14 +39,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/app" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/app" />
-      <recent name="$PROJECT_DIR$/templates/registration" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/app" />
       <recent name="$PROJECT_DIR$/static/test" />
       <recent name="$PROJECT_DIR$/media/profile_images" />
       <recent name="$PROJECT_DIR$/media" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/app" />
+      <recent name="$PROJECT_DIR$/templates/registration" />
     </key>
   </component>
   <component name="SvnConfiguration">
