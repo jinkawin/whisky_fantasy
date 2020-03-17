@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/CustomerForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/CustomerForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0002_remove_tweet_age.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20200310_2039.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200315_0105.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200316_1339.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0005_auto_20200315_0926.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0005_customer_cust_fb_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20200315_0942.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20200316_1359.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200315_1921.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200316_1452.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0008_remove_customer_cust_fb_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0009_customer_cust_fb_id.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0010_merge_20200316_2007.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/Customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Customer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/register_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/register_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whisky_fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisky_fantasy/settings.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YnuNFJ82mZMBHNXEaqRAHtFirt" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/app" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/app" />
+      <recent name="$PROJECT_DIR$/templates/registration" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/test" />
+      <recent name="$PROJECT_DIR$/media/profile_images" />
+      <recent name="$PROJECT_DIR$/media" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="" />
+      <created>1583590637496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583590637496</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584387547915">
+      <screen x="0" y="23" width="1366" height="741" />
+    </state>
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1584387547915" />
+  </component>
+</project>
