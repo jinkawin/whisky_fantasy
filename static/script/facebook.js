@@ -22,17 +22,29 @@ $(document).ready(function(){
     var csrftoken = $("[name=csrfmiddlewaretoken]").val();
 
     $("#facebook-button").click(function(){
+        var loginUrl = $("#facebook-button")[0].getAttribute('data-url');
+        var redirect = $("#facebook-button")[0].getAttribute('data-redirect');
+
         FB.login(function(response) {
             if (response.status === 'connected') {
-                console.log('Welcome!  Fetching your information.... ');
 
                 access_token = response.authResponse.accessToken; //get access token
                 user_id = response.authResponse.userID; //get FB UID
 
                 FB.api('/me', {"fields":"email,first_name,last_name"}, function (response) {
-                    console.log(response);
-                    $.post( "facebook_login", { 'fb_obj': response, 'csrfmiddlewaretoken': csrftoken }, function(data) {
-                        console.log(data);
+
+                    var data = {
+                        'role': 0,
+                        'cust_fb_id': response.id,
+                        'username': response.first_name + response.last_name,
+                        'email': response.email,
+                        'csrfmiddlewaretoken': csrftoken
+                    }
+
+                    $.post(loginUrl, data, function(response) {
+                        if(response.isSuccess){
+                            window.location.replace(redirect);
+                        }
                     });
                 });
 

@@ -1,5 +1,5 @@
 from .Index import index
-from .Logout import logout
+from .Logout import user_logout
 from .FacebookLogin import facebookLogin
 from .CustLogin import custLogin
 from .CustRegister import custRegister

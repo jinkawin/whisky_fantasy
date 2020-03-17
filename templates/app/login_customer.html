@@ -21,7 +21,6 @@
             <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
         </div>
 
-
         <div class="row" style="background-color:white;">
             <form class="form-signin" role="form" method="post" action="{% url 'app:cust_login' %}" >
                 {% csrf_token %}
@@ -44,7 +43,7 @@
                 <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
                     style="background-color: #818181;color: white;">Log In</button>
                 <p class="text-center">or</p>
-                <button class="btn btn-lg btn-primary btn-block" id="facebook-button">Login with
+                <button class="btn btn-lg btn-primary btn-block" id="facebook-button" data-url="{% url 'app:facebook_login' %}" data-redirect="{% url 'app:myaccount' %}">Login with
                     Facebook</button>
             </form>
         </div>

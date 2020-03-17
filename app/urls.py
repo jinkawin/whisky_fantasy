@@ -5,7 +5,7 @@ app_name = 'app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('logout', views.logout, name='logout'),
+    path('logout', views.user_logout, name='logout'),
     path('facebook_login', views.facebookLogin, name='facebook_login'),
     path('cust_login/', views.custLogin, name='cust_login'),
     path('cust_register/', views.custRegister, name='cust_register'),
