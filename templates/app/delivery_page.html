@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Import Bootstrap 4.2 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <title>Whisky Fantasy</title>
+        <style>
+        .navbar-dark .navbar-brand{
+            color: #D29062;
+        }
+        /* Button Before */
+        .btn-outline-success, .btn-primary{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        /* Button Hover */
+        .btn-outline-success:hover, .btn-primary:hover{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        /* Button Selected */
+        .btn-outline-success.disabled, .btn-primary:disabled{
+            color:white;
+            background-color:#D29062;
+        }
+        .btn-outline-success:not(:disabled):not(.disabled):active,
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        </style>
+    </head>
+
+    <body class="bg-light">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
+            <div class="container">
+                <div class="row col-md-12 col-sm-12">
+                    <!-- icon+homepage -->
+                    <a class="navbar-brand" href="search_by_price.html">Whisky Fantasy</a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- search bar & button -->
+                    <div class="navbar-collapse col-md-9 col-sm-12"  id="navbarSupportedContent">
+                        <form class="form-inline ml-auto" id="" method="post" action="{% url '' %}">
+                          <!--{% csrf_token %}-->
+                          <input class="form-control" type="text" name="query" id="query" value="" />
+                          <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
+                        </form>
+                    </div>
+
+                    <!-- right side menu -->
+                    <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
+                        <li class="nav-item dropdown ml-auto">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
+                                Hi, Melissa.
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">My Account</a>
+                                <a class="dropdown-item" href="#">My Transaction</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+         </nav>
+
+        <!-- Main Content -->
+        <br />
+        <div class="container">
+            <h1>Enter Delivery Address</h1>
+            <br />
+            <form>
+                <div class="row form-group">
+                    <label for="staticEmail" class="col-md-3 col-form-label">Email</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com" />
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="addressLine1" class="col-md-3 col-form-label">Address Line 1:</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="addressLine1" placeholder="Flat Unit, Building Name" />
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="addressLine2" class="col-md-3 col-form-label">Address Line 1:</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="addressLine2" placeholder="Street Name" />
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="city" class="col-md-3 col-form-label">Town / City:</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="city" placeholder="City Name"/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="postcode" class="col-md-3 col-form-label">Postcode:</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" id="postcode" placeholder="Postal Code"/>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label for="phone" class="col-md-3 col-form-label">Contact No.:</label>
+                    <label class="col-md-1 col-form-label"><strong>+44 (0)</strong></label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="phone" placeholder="e.g. 123456789"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-1">
+                        <a type="submit" class="btn btn-primary float-right" href="payment_page.html">Confirm</a>
+                    </div>
+                    <div class="col-md-1">
+                        <a type="reset" class="btn btn-light float-right" href="detail_page.html">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+</html>

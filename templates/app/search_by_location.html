@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Import Bootstrap 4.2 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <title>Whisky Fantasy</title>
+        <style>
+        .navbar-dark .navbar-brand{
+            color: #D29062;
+        }
+        /* Button Before */
+        .btn-outline-success, .btn-primary{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        /* Button Hover */
+        .btn-outline-success:hover, .btn-primary:hover{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        /* Button Selected */
+        .btn-outline-success.disabled, .btn-primary:disabled{
+            color:white;
+            background-color:#D29062;
+        }
+        .btn-outline-success:not(:disabled):not(.disabled):active,
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle{
+            color:white;
+            background-color:#D29062;
+            border-color:#D29062;
+        }
+        </style>
+    </head>
+
+    <body class="bg-light">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
+            <div class="container">
+                <div class="row col-md-12 col-sm-12">
+                    <!-- icon+homepage -->
+                    <a class="navbar-brand" href="search_by_price.html">Whisky Fantasy</a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- search bar & button -->
+                    <div class="navbar-collapse col-md-9 col-sm-12"  id="navbarSupportedContent">
+                        <form class="form-inline ml-auto" id="" method="post" action="{% url '' %}">
+                          <!--{% csrf_token %}-->
+                          <input class="form-control" type="text" name="query" id="query" value="" />
+                          <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
+                        </form>
+                    </div>
+
+                    <!-- right side menu -->
+                    <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
+                        <li class="nav-item dropdown ml-auto">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
+                                Hi, Melissa.
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">My Account</a>
+                                <a class="dropdown-item" href="#">My Transaction</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+         </nav>
+
+        <!-- Sort Bar -->
+        <div class="container">
+            <br />
+            <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled">Sort By:</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="search_by_price.html">Price</a>
+                  </li>
+                  <li class="nav-item disabled">
+                      <a class="nav-link disabled">|</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="search_by_location.html">Location</a>
+                  </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <br />
+        <div class="container bg-white" style="border:1px solid coral;">
+            <!-- Product 1 -->
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
+                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
+                        class="img-fluid"/>
+                </div>
+                <div class="col-md-9 ml-auto">
+                    <div class="row">
+                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="row"/>
+            <!-- Product 2 -->
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
+                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
+                        class="img-fluid"/>
+                </div>
+                <div class="col-md-9 ml-auto">
+                    <div class="row">
+                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="row"/>
+            <!-- Product 3 -->
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
+                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
+                        class="img-fluid"/>
+                </div>
+                <div class="col-md-9 ml-auto">
+                    <div class="row">
+                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+</html>
