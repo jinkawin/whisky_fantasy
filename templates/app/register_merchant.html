@@ -43,6 +43,10 @@
                     required><br />
                 <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
                     style="background-color: #818181;color: white;">Sign Up</button>
+                {{ user_form.errors }}
+                {% if registered %}
+                <p>Registered successfully! Please login</p>
+                {% endif %}
 
             </form>
         </div>

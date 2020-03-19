@@ -32,6 +32,9 @@
                         style="border-color: #D29062;color: #d29062;">Customer</button>
                     <button type="button" class="btn" style="background-color: #D29062;color:white;">Merchant</button>
                 </div><br /><br />
+                {% if form.errors %}
+                    <p style="color:red;">{{ form.errors }}</p>
+                {% endif %}
 
                 <label for="id_username">Username :</label><br />
                 <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required
@@ -41,6 +44,7 @@
                     required><br/>
                 <button class="btn btn-lg btn-block" type="submit" value="Sublmit" style="background-color: #818181;color: white;">Log In</button>
             </form>
+            <p style="color:red;">{{ form.errors }}</p>
         </div>
         <div class="row" style="background-color:black;height: 40px;">
             <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">

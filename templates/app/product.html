@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Transaction</title>
+  <title>Product</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -93,11 +93,11 @@
     </form>
 
 
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
+    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
         class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
-      <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
+      <li><a class="p-2 text-dark" href="{% url 'app:merchant_transaction'%}">My Transaction</a></li>
       <li><a class="p-2 text-dark" href="{% url 'auth_password_change'%}">Change Password</a></li>
       <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
 
@@ -109,43 +109,42 @@
   <div class="container" style="">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
-        <button class="btn btn-switch btn-md active" aria-pressed="true" type="submit" name="submit">
+        <button class="btn btn-md active" aria-pressed="true" >
           <strong>Products</strong>
         </button>
-        <button class="btn btn-md active" aria-pressed="true" type="submit" name="submit">
+        <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='/app/merchant_transaction/'">
           <strong>Transactions</strong>
         </button>
       </div>
+
+
       <div class="col-md-9 " style="text-align: right;">
         <button class="btn btn-iso btn-sm active" aria-pressed="true" onclick="location='{% url 'app:add_product'%}'">
           Add Product
         </button>
       </div>
+      <ul class="list-group col-md-12">
+        {% for Whisky in product %}
+
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div class="col-md-3">
+            <img src="/media/{{Whisky.whisky_img}}" alt="No pictures">
+          </div>
+          <div class="col-md-7" style="background-color:">
+            <h6 class="my-0">{{Whisky.whisky_name}}</h6>
+            <small class="text-muted">{{Whisky.whisky_description}}</small><br><br>
+            <strong>${{Whisky.whisky_price}}</strong>
+          </div>
+          <div class="col-md-2 ">
+            <button class="btn btn-switch btn-md active" style="margin-bottom: 10px;width: 80px;" onclick="location='{% url 'app:add_product'%}'">Edit</button><br>
+            <button class="btn btn-switch btn-md active" style="width: 80px;" value="Delete">Delete</button>
+          </div>         
+        </li>
+        {% endfor %}
+       
+      </ul>
     </div>
-    <table class="table table-bordered table-hover table-responsive-md border-dark">
-      <thead class="thead" style="background-color:#FFF2CC">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Date Time</th>
-          <th scope="col">Product Name</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Total Amount</th>
-          <th scope="col">Customer ID</th>
-          <th scope="col">Delivered Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-        </tr>
-      </tbody>
-    </table>
+
   </div>
 
 
