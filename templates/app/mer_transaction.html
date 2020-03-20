@@ -93,7 +93,7 @@
     </form>
 
 
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
+    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
         class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
@@ -109,7 +109,7 @@
   <div class="container" style="">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
-        <button class="btn btn-switch btn-md active" aria-pressed="true" type="submit" name="submit">
+        <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='{% url 'app:product'%}'">
           <strong>Products</strong>
         </button>
         <button class="btn btn-md active" aria-pressed="true" type="submit" name="submit">

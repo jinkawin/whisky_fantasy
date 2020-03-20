@@ -1,81 +1,20 @@
 <!DOCTYPE html>
-
+{% extends 'app/base.html' %}
+{% load static %}
 <html lang="en">
 
 <head>
   <!-- meta tages-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <title>Product</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-  <style>
-    .btn,
-    .btn:hover,
-    .btn:active,
-    .btn:visited,
-    .btn:focus {
-      background-color: #D29062;
-      color: white;
-      outline: none;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-    }
-
-    .btn-primary {
-      border-color: #D29062;
-      margin-left: -10px;
-    }
-
-    .btn-switch {
-      background-color: white;
-      color: #D29062;
-      border: 1px solid #D29062;
-
-    }
-
-    .dropdown-item {
-      border-collapse: collapse;
-      border-bottom: 1px solid #707070;
-      text-align: right;
-      padding: 5px;
-    }
-
-    .dropdown-item:last-child {
-      border-bottom: none;
-    }
-
-    .container {
-      align-items: center;
-      width: auto;
-      padding: 0px;
-      border: 0px;
-      margin-top: 50px;
-
-    }
-
-    .row.no-gutter {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .table-bordered {
-
-      th,
-      td,
-      thead {
-        border: 1px solid #707070 !important;
-      }
-    }
-  </style>
-
-  <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap." rel="stylesheet">
 </head>
 
 <body>
+  {% block body_block %}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  crossorigin="anonymous"></script>
 
   <!--navbar is fluid by default-->
   <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
@@ -93,8 +32,7 @@
     </form>
 
 
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
-        class="caret"></b></a>
+    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
       <li><a class="p-2 text-dark" href="{% url 'app:merchant_transaction'%}">My Transaction</a></li>
@@ -106,13 +44,14 @@
   </nav>
 
 
-  <div class="container" style="">
+  <div class="container">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
-        <button class="btn btn-md active" aria-pressed="true" >
+        <button class="btn btn-md active" aria-pressed="true">
           <strong>Products</strong>
         </button>
-        <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='/app/merchant_transaction/'">
+        <button class="btn btn-switch btn-md active" aria-pressed="true"
+          onclick="location='/app/merchant_transaction/'">
           <strong>Transactions</strong>
         </button>
       </div>
@@ -126,37 +65,54 @@
       <ul class="list-group col-md-12">
         {% for Whisky in product %}
 
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <li class="list-group-item d-flex justify-content-between lh-condensed" id="{{Whisky.id}}">
           <div class="col-md-3">
-            <img src="/media/{{Whisky.whisky_img}}" alt="No pictures">
+            <img src="/media/{{Whisky.whisky_img}}" alt="No pictures" style="width: 100px;height: 100px;">
           </div>
           <div class="col-md-7" style="background-color:">
             <h6 class="my-0">{{Whisky.whisky_name}}</h6>
             <small class="text-muted">{{Whisky.whisky_description}}</small><br><br>
             <strong>${{Whisky.whisky_price}}</strong>
           </div>
-          <div class="col-md-2 ">
-            <button class="btn btn-switch btn-md active" style="margin-bottom: 10px;width: 80px;" onclick="location='{% url 'app:add_product'%}'">Edit</button><br>
-            <button class="btn btn-switch btn-md active" style="width: 80px;" value="Delete">Delete</button>
-          </div>         
+          <div class="col-md-2 ">             
+              {% if Whisky.whisky_status == 2 %}
+              <p id="flag{{Whisky.id}}">Off Shelf</p>
+              {% else %}
+              <button class="btn btn-switch btn-md active" style="margin-bottom: 10px;width: 100px;"
+                onclick="location='{% url 'app:edit_product'%}?product_id={{Whisky.id}}'">Edit</button><br>
+              <button class="btn btn-switch btn-md active off" style="width: 100px;" data-id="{{Whisky.id}}" data-status="2">Off Shelf</button>
+              <p id="flag{{Whisky.id}}"></p>
+              {% endif %}
+
+          </div>
         </li>
         {% endfor %}
-       
+
       </ul>
     </div>
 
   </div>
+  <!-- add new class tag 'off' to be easily get the clicked button-->
+<style>
+  .off {}
+  .edit{}
+</style>
+<link rel="stylesheet" href="/static/css/productList.css">
+<script src="/static/script/disable_product.js/"></script>
+<!-- <script>
+  
+      $(document).ready(function () {
+          $('.edit').click(function () {
+              var product_id = $(this).attr('data-id');
+              var button = $(this);
+              $.get('/app/add_product/', { 'id': product_id }, function (data) {
+                  window.location.href='/app/add_product/'
+              })
 
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
+          })
+      })
+  
+</script> -->
+{% endblock %}
 </body> <!-- end of page -->
-
 </html>

@@ -2,31 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controllers/Transaction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/forms/ProductForm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tables/Delivery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/tables/PaymentInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/profile_images/cardback.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app/add_product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/script/disable_product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/app/edit_product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/UserProfileForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/UserProfileForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Transaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/UserProfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/UserProfile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/tables/Whisky.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Whisky.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/login_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/add_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/add_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/mer_transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/mer_transaction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/register_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +73,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="412" y="245" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584707882957">
+      <screen x="0" y="23" width="1366" height="741" />
+    </state>
+    <state x="412" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1366.741@0.23.1366.741" timestamp="1584707882957" />
     <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584615659905">
       <screen x="0" y="23" width="1366" height="741" />
     </state>

@@ -7,4 +7,4 @@ from .MerchantLogin import merchantLogin
 from .MerchantRegister import merchantRegister
 from .Profile import profile
 from .Transaction import transaction
-from .Product import addProduct,productList
+from .Product import addProduct, productList, get,editProduct
