@@ -86,14 +86,14 @@
     </a>
     <!-- search bar&button-->
 
-    <form class="form-inline ml-auto" id="" method="post" action="{% url '' %}">
-      <!--{% csrf_token %}-->
+    <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:index' %}">
+      {% csrf_token %}
       <input class="form-control" type="text" size="50" name="query" id="query" value="" />
       <button class="btn btn-primary" type="submit" name="submit">Search</button>
     </form>
 
 
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
+    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
         class="caret"></b></a>
     <ul class="dropdown-menu">
       <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
@@ -109,7 +109,7 @@
   <div class="container" style="">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
-        <button class="btn btn-switch btn-md active" aria-pressed="true" type="submit" name="submit">
+        <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='{% url 'app:product'%}'">
           <strong>Products</strong>
         </button>
         <button class="btn btn-md active" aria-pressed="true" type="submit" name="submit">
@@ -117,7 +117,7 @@
         </button>
       </div>
       <div class="col-md-9 " style="text-align: right;">
-        <button class="btn btn-iso btn-sm active" aria-pressed="true" type="submit" name="submit">
+        <button class="btn btn-iso btn-sm active" aria-pressed="true" onclick="location='{% url 'app:add_product'%}'">
           Add Product
         </button>
       </div>

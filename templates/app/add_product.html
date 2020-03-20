@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -28,7 +29,7 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
         style="background-color:#000;">
         <h5 class="my-0 mr-md-auto font-weight-normal" style="color:#D29062;">Whisky Fantasy</h5>
-        <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{profile.user}}<b
+        <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
                 class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
@@ -40,31 +41,53 @@
     </div>
 
     <div class="container">
-        <div class="row ">
-            <div class="col-md-5 text-center">
-                <h2 style="color: #D29062;">My Account</h2>
-                <img src="/media/{{profile.picture}}/" alt="You have not uploaded a photo!" class="p-4" onclick=""
-                    style="width: 325px;height: 337px;">
-            </div>
 
-            <div class="col-md-7">
-                <form class="form-horizontal" role="form" method="post" action="." enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <br /><br /><br />
+        <form class="form-horizontal" role="form" method="post" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h2 style="color: #D29062;">Add New Product</h2><br>
+            <div class="row ">
+                <div class="col-md-6 text-center">
                     <div class="form-group row">
-                        <label class="col-sm-2">Username:</label>
-                        <label id="username" class="font-weight-bold">{{profile.user}}</label>
+                        <label class="col-sm-2">Name:</label>
+                        <input type="text" name="whisky_name" id="id_name" class="col-md-8 form-control"  required>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 " for="id_email" style="padding-top: 5px;">E-mail :</label>
-                        <input type="text" name="email" id="id_email" class="col-md-8 form-control" placeholder="email"
-                            value="{{profile.user.email}}" required>
+                        <label class="col-sm-2">Price:</label>
+                        <input type="text" name="whisky_price" id="id_price" class="col-md-8 form-control" required>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2">Quantity:</label>
+                        <input type="number" name="whisky_quantity" id="id_quantity" class="col-md-8 form-control"
+                            min="0"  required>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 " for="id_location" style="padding-top: 5px;">Location:</label>
+                        <input type="text" name="location" id="id_location" class="col-md-8 form-control"  required>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group row">
+                        <label class="col-sm-3 " style="padding-top: 5px;margin-left: 15px;">Description:</label>
+                        <input type="text" name="whisky_description" class="col-md-8 form-control" required>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2">Picture :</label>
+                        <label class="col-sm-3">Upload Photo:</label>
 
-                        <input type="file" name="picture" id="file" onchange="getPhoto(this)" /></div>
+                        <input class="col-sm-8" type="file" name="whisky_img" id="file" onchange="getPhoto(this)"
+                            style="height: 30px;" /><br>
+
+                        <img src="/media//" alt="Upload Photo" class="p-4" onclick=""
+                            style="width: 150px;height: 150px;margin: 30px; background-color: #D29062;">
+                    </div>
+                    <input type="hidden" name="whisky_status" value="1">
+                    <input type="hidden" name="merchant" value="{{user}}">
 
 
                     <div class="form-group row">
@@ -73,13 +96,17 @@
                             style="background-color: #D29062;color:white;margin-left: 300px;">Save</button>
                         <button class="btn col-sm-2" type="button" value="Cancel"
                             style="border-color: #D29062;color: #d29062;background-color:white;margin-left: 30px;">Cancel</button>
+                    </div>
+                    {{product.errors}}
 
 
-                </form>
-
+                </div>
             </div>
+        </form>
 
-        </div>
+    </div>
+
+    </div>
 
     </div>
 

@@ -10,5 +10,7 @@ class UserProfile(models.Model):
     role = models.CharField(max_length=1, choices=(('0', 'customer'), ('1', 'merchant')))
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
+
+
     def __str__(self):
         return self.user.username

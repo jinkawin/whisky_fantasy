@@ -12,4 +12,9 @@ urlpatterns = [
     path('merchant_login/', views.merchantLogin, name='merchant_login'),
     path('merchant_register/', views.merchantRegister, name='merchant_register'),
     path('myaccount/',views.profile,name='myaccount'),
+    path('merchant_transaction/' , views.transaction, name='merchant_transaction'),
+    path('add_product/',views.addProduct, name='add_product'),
+    path('product/',views.productList,name='product'),
+    path('product_status/',views.get, name='product_status'),
+    path('edit_product/',views.editProduct,name='edit_product')
 ]
