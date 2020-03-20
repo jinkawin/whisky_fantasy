@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/script/disable_product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/app/edit_product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/app/base_mainPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Whisky.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Whisky.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/add_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/add_product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/mer_transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/mer_transaction.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
