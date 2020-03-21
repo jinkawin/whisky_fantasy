@@ -57,7 +57,9 @@ def editProduct(request):
             product.whisky_price = request.POST.get('whisky_price')
             product.whisky_quantity = request.POST.get('whisky_quantity')
             product.whisky_description = request.POST.get('whisky_description')
-            product.whisky_img = request.FILES.get('whisky_img')
+            picture = request.FILES.get('whisky_img')
+            if picture is not None:
+                product.whisky_img = request.FILES.get('whisky_img')
             product.location = request.POST.get('location')
             print(product.location)
             product.save()

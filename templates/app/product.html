@@ -36,7 +36,6 @@
     <ul class="dropdown-menu">
       <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
       <li><a class="p-2 text-dark" href="{% url 'app:merchant_transaction'%}">My Transaction</a></li>
-      <li><a class="p-2 text-dark" href="{% url 'auth_password_change'%}">Change Password</a></li>
       <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
 
     </ul>
@@ -72,15 +71,15 @@
           <div class="col-md-7" style="background-color:">
             <h6 class="my-0">{{Whisky.whisky_name}}</h6>
             <small class="text-muted">{{Whisky.whisky_description}}</small><br><br>
-            <strong>${{Whisky.whisky_price}}</strong>
+            <strong>£{{Whisky.whisky_price}}</strong>
           </div>
           <div class="col-md-2 ">             
               {% if Whisky.whisky_status == 2 %}
-              <p id="flag{{Whisky.id}}">Off Shelf</p>
+              <p id="flag{{Whisky.id}}">Removed</p>
               {% else %}
               <button class="btn btn-switch btn-md active" style="margin-bottom: 10px;width: 100px;"
                 onclick="location='{% url 'app:edit_product'%}?product_id={{Whisky.id}}'">Edit</button><br>
-              <button class="btn btn-switch btn-md active off" style="width: 100px;" data-id="{{Whisky.id}}" data-status="2">Off Shelf</button>
+              <button class="btn btn-switch btn-md active off" style="width: 100px;" data-id="{{Whisky.id}}" data-status="2">Remove</button>
               <p id="flag{{Whisky.id}}"></p>
               {% endif %}
 
@@ -99,20 +98,7 @@
 </style>
 <link rel="stylesheet" href="/static/css/productList.css">
 <script src="/static/script/disable_product.js/"></script>
-<!-- <script>
-  
-      $(document).ready(function () {
-          $('.edit').click(function () {
-              var product_id = $(this).attr('data-id');
-              var button = $(this);
-              $.get('/app/add_product/', { 'id': product_id }, function (data) {
-                  window.location.href='/app/add_product/'
-              })
 
-          })
-      })
-  
-</script> -->
 {% endblock %}
 </body> <!-- end of page -->
 </html>
