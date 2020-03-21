@@ -1,12 +1,13 @@
 import tweepy
 import requests
+import json
 
 from tweepy.binder import bind_api
 from tweepy.api import API
 
 from django.conf import settings
 from django.urls import reverse
-from django.http import request
+from django.http import HttpResponse, request
 from django.shortcuts import redirect
 
 class Twitter(API):
@@ -35,8 +36,8 @@ class Twitter(API):
             redirect_url = self.auth.get_authorization_url()
             return redirect(redirect_url)
         except tweepy.TweepError as e:
-            print(e)
-            return False
+            response_data = {"error": e}
+            return HttpResponse(json.dumps(response_data), content_type="application/json")
 
     def me(self):
         data = {}
