@@ -16,6 +16,19 @@ def productList(request):
     return render(request, 'app/product.html', {'product': product})
 
 
+def search_page(request):
+    product = Whisky.objects.all()
+    print(product)
+
+    return render(request, 'app/search_by_price.html', {'product': product})
+
+def product_detail(request):
+    if request.method == 'GET':
+        product_id = request.GET.get('product_id')
+        product = Whisky.objects.get(id=product_id)
+        return render(request, 'app/edit_product.html', {'product': product})
+
+
 @login_required
 def addProduct(request):
     if request.method == 'POST':
@@ -57,7 +70,7 @@ def editProduct(request):
 
 
 @login_required
-def get(request):
+def set_status(request):
     product_id = request.GET['id']
     status = request.GET['status']
 

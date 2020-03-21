@@ -51,7 +51,7 @@
 
                     <!-- search bar & button -->
                     <div class="navbar-collapse col-md-9 col-sm-12"  id="navbarSupportedContent">
-                        <form class="form-inline ml-auto" id="" method="post" action="{% url '' %}">
+                        <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:index' %}">
                           <!--{% csrf_token %}-->
                           <input class="form-control" type="text" name="query" id="query" value="" />
                           <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
@@ -63,7 +63,7 @@
                         <li class="nav-item dropdown ml-auto">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
-                                Hi, Melissa.
+                                Hi,{{ user }}
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">My Account</a>
@@ -85,7 +85,7 @@
                     <a class="nav-link disabled">Sort By:</a>
                 </li>
                   <li class="nav-item">
-                      <a class="nav-link active" href="search_by_price.html">Price</a>
+                      <a class="nav-link active" href="{% url 'app:search_by_price'%}">Price</a>
                   </li>
                   <li class="nav-item disabled">
                       <a class="nav-link disabled">|</a>
@@ -100,52 +100,23 @@
         <br />
         <div class="container bg-white" style="border:1px solid coral;">
             <!-- Product 1 -->
+            {% for Whisky in product %}
             <div class="row">
                 <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
+                    <img src="/media/{{Whisky.whisky_img}}"
                         class="img-fluid"/>
                 </div>
                 <div class="col-md-9 ml-auto">
                     <div class="row">
-                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
+                        <a href="detail_page.html" class="col-md-12">{{Whisky.whisky_name}}</a>
                     </div>
                     <div class="row">
-                        <p class="col-md-12">{Whisky_Description}</p>
+                        <p class="col-md-12">{{Whisky.whisky_description}}</p>
                     </div>
                 </div>
             </div>
             <hr class="row"/>
-            <!-- Product 2 -->
-            <div class="row">
-                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
-                        class="img-fluid"/>
-                </div>
-                <div class="col-md-9 ml-auto">
-                    <div class="row">
-                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
-                    </div>
-                    <div class="row">
-                        <p class="col-md-12">{Whisky_Description}</p>
-                    </div>
-                </div>
-            </div>
-            <hr class="row"/>
-            <!-- Product 3 -->
-            <div class="row">
-                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
-                        class="img-fluid"/>
-                </div>
-                <div class="col-md-9 ml-auto">
-                    <div class="row">
-                        <a href="detail_page.html" class="col-md-12">{Whisky_Name}</a>
-                    </div>
-                    <div class="row">
-                        <p class="col-md-12">{Whisky_Description}</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
         <!-- JavaScript -->
