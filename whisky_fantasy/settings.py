@@ -27,6 +27,12 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'jp8d_sx3c3&&s!zg5ls)6#*af9@tgsq1b1k*l9qdsh(vngvodg'
 SECRET_VALUE = 'XKucz42ZcYLwKGd'
 
+# Twitter Keys
+TWITTER_API_KEY = 'yu5atjQiSIm1mikmKs5IpF9Si'
+TWITTER_API_SECRET = '42eGCMLQVvcrHDrt8N2EafLXhUGWIAVbbqZm2Imne9ShsSFFv2'
+TWITTER_ACCESS_TOKEN = '300137857-lp8TUI3b9OLOvQNWIpUd26KL8gBVvBppwK5pvVTc'
+TWITTER_ACCESS_TOKEN_SECRET = 'e36YSUOjsUFyLYCkTB7Jmd0kvH4axFrOZtbeRbAXyHHnA'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -43,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'registration',
+    'libs',
 ]
 
 MIDDLEWARE = [
