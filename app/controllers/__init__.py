@@ -8,4 +8,5 @@ from .MerchantLogin import merchantLogin
 from .MerchantRegister import merchantRegister
 from .Profile import profile
 from .Transaction import transaction
+from .Location import searchLocation
 from .Product import addProduct, productList, set_status,editProduct,search_page

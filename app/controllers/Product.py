@@ -5,7 +5,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from app.forms.ProductForm import ProductForm
-from app.tables.Whisky import Whisky
+from app.tables.Whisky import Whisky, Location
+
+import json
 
 
 @login_required
@@ -31,6 +33,10 @@ def product_detail(request):
 
 @login_required
 def addProduct(request):
+    locationObj = Location.objects.all()
+    locations =  json.dumps([ location.location_name for location in locationObj])
+
+    print(locations)
     if request.method == 'POST':
 
         product = ProductForm(request.POST, request.FILES)
@@ -44,7 +50,7 @@ def addProduct(request):
             print(product.errors)
     else:
         product = ProductForm()
-    return render(request, 'app/add_product.html', {'product': product})
+    return render(request, 'app/add_product.html', {'product': product, 'locations': locations})
 
 
 @login_required
