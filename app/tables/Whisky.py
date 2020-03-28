@@ -1,17 +1,13 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
 from app.tables.Location import Location
-from app.tables.Merchant import Merchant
 
 
 class Whisky(models.Model):
-    # location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    location = models.CharField(max_length=255,blank=True)
+    whisky_location = models.ForeignKey(Location, on_delete=models.CASCADE, to_field="location_name")
     whisky_name = models.CharField(max_length=255, null=False)
     whisky_description = models.CharField(max_length=255, null=False)
-    # whisky_status = models.CharField(max_length=255, null=False)
     whisky_price = models.DecimalField(max_digits=20,decimal_places=2, null=False, default=0.0)
     whisky_quantity = models.PositiveIntegerField()
     whisky_status = models.IntegerField(default=1, null=False)

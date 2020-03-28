@@ -12,7 +12,7 @@ import json
 
 @login_required
 def productList(request):
-    product = Whisky.objects.filter(merchant=request.user)
+    product = Whisky.objects.filter(merchant=request.user).order_by('-id')
     print(product)
 
     return render(request, 'app/product.html', {'product': product})
@@ -24,6 +24,7 @@ def search_page(request):
 
     return render(request, 'app/search_by_price.html', {'product': product})
 
+
 def product_detail(request):
     if request.method == 'GET':
         product_id = request.GET.get('product_id')
@@ -34,14 +35,12 @@ def product_detail(request):
 @login_required
 def addProduct(request):
     locationObj = Location.objects.all()
-    locations =  json.dumps([ location.location_name for location in locationObj])
+    locations = json.dumps([location.location_name for location in locationObj])
 
     print(locations)
     if request.method == 'POST':
-
         product = ProductForm(request.POST, request.FILES)
-        merchant = User.objects.get(username=request.POST.get('merchant'))
-        product.merchant = merchant
+        print(product)
         if product.is_valid():
             product.save()
             return redirect(reverse('app:product'))
@@ -55,6 +54,8 @@ def addProduct(request):
 
 @login_required
 def editProduct(request):
+    # if request.method == 'GET':
+
     if request.method == 'POST':
         product_id = request.POST.get('id')
         print(product_id)
@@ -67,15 +68,16 @@ def editProduct(request):
             picture = request.FILES.get('whisky_img')
             if picture is not None:
                 product.whisky_img = request.FILES.get('whisky_img')
-            product.location = request.POST.get('location')
-            print(product.location)
+            product.whisky_location = Location.objects.get(location_name=request.POST.get('whisky_location'))
             product.save()
             return redirect(reverse('app:product'))
 
     else:
         product_id = request.GET.get('product_id')
         product = Whisky.objects.get(id=product_id)
-        return render(request, 'app/edit_product.html', {'product': product})
+        locationObj = Location.objects.all()
+        locations = json.dumps([location.location_name for location in locationObj])
+        return render(request, 'app/edit_product.html', {'product': product, 'locations': locations})
 
 
 @login_required

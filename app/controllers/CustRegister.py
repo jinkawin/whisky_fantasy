@@ -8,8 +8,10 @@ def custRegister(request):
     if request.method == 'POST':
         user_form = CustomerForm(request.POST)
         profile_form = UserProfileForm(request.POST)
+        print(user_form)
 
         if user_form.is_valid() and profile_form.is_valid():
+            print("yes?")
             user = user_form.save()
             user.set_password(user.password)
             user.save()

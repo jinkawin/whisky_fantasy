@@ -2,4 +2,4 @@ from django.db import models
 
 
 class Location(models.Model):
-    location_name = models.CharField(max_length=255, null=False)
+    location_name = models.CharField(max_length=255, null=False ,unique=True)

@@ -34,7 +34,7 @@
                 <input type="hidden" name="role" value=0>
 
                 <label for="id_email">E-mail :</label>
-                <input type="text" name="cust_email" id="id_email" class="form-control" placeholder="email" required
+                <input type="text" name="email" id="id_email" class="form-control" placeholder="email" required
                     autofocus>
                 <label for="id_username">Username :</label>
                 <input type="text" name="username" id="id_username" class="form-control" placeholder="Username"
@@ -49,7 +49,9 @@
                     style="background-color: #818181;color: white;">Sign Up</button>
 
                 {{ user_form.errors }}
-
+                {% if registered %}
+                <p>Registered successfully! Please login</p>
+                {% endif %}
 
             </form>
         </div>
@@ -61,6 +63,7 @@
         </div>
 
     </div>
+    <script src="/static/script/register_validation.js/"></script>
 {% endblock %}
 </body>
 
