@@ -32,7 +32,7 @@ def product_detail(request):
     if request.method == 'GET':
         product_id = request.GET.get('product_id')
         product = Whisky.objects.get(id=product_id)
-        return render(request, 'app/edit_product.html', {'product': product,'profile':profile})
+        return render(request, 'app/detail_page.html', {'product': product,'profile':profile})
 
 
 @login_required

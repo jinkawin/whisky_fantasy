@@ -103,12 +103,12 @@
             {% for Whisky in product %}
             <div class="row">
                 <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                    <img src="/media/{{Whisky.whisky_img}}"
+                    <img src="/media/{{Whisky.whisky_img}}/"
                         class="img-fluid"/>
                 </div>
                 <div class="col-md-9 ml-auto">
                     <div class="row">
-                        <a href="detail_page.html" class="col-md-12">{{Whisky.whisky_name}}</a>
+                        <a href="{% url 'app:product_details'%}?product_id={{Whisky.id}}" class="col-md-12">{{Whisky.whisky_name}}</a>
                     </div>
                     <div class="row">
                         <p class="col-md-12">{{Whisky.whisky_description}}</p>
