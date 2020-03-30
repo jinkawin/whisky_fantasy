@@ -1,111 +1,22 @@
 <!DOCTYPE html>
-
+{% extends 'app/base_mainPage.html' %}
+{% load static %}
 <html lang="en">
 
 <head>
   <!-- meta tages-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <title>Transaction</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-  <style>
-    .btn,
-    .btn:hover,
-    .btn:active,
-    .btn:visited,
-    .btn:focus {
-      background-color: #D29062;
-      color: white;
-      outline: none;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-    }
-
-    .btn-primary {
-      border-color: #D29062;
-      margin-left: -10px;
-    }
-
-    .btn-switch {
-      background-color: white;
-      color: #D29062;
-      border: 1px solid #D29062;
-
-    }
-
-    .dropdown-item {
-      border-collapse: collapse;
-      border-bottom: 1px solid #707070;
-      text-align: right;
-      padding: 5px;
-    }
-
-    .dropdown-item:last-child {
-      border-bottom: none;
-    }
-
-    .container {
-      align-items: center;
-      width: auto;
-      padding: 0px;
-      border: 0px;
-      margin-top: 50px;
-
-    }
-
-    .row.no-gutter {
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    .table-bordered {
-
-      th,
-      td,
-      thead {
-        border: 1px solid #707070 !important;
-      }
-    }
-  </style>
-
-  <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap." rel="stylesheet">
+  {% block head %}
+  <link rel="stylesheet" href="/static/css/productList.css">
+  {% endblock %}
 </head>
 
 <body>
-
-  <!--navbar is fluid by default-->
-  <nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm"
-    style="background-color:#000;">
-    <!-- icon+homepage -->
-    <a class="navbar-brand" style="color:#D29062;" href="#">
-      Whisky Fantasy
-    </a>
-    <!-- search bar&button-->
-
-    <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:index' %}">
-      {% csrf_token %}
-      <input class="form-control" type="text" size="50" name="query" id="query" value="" />
-      <button class="btn btn-primary" type="submit" name="submit">Search</button>
-    </form>
-
-
-    <a class="p-2 text-white dropdown-toggle" data-toggle="dropdown" href="#">Hello,{{user}}<b
-        class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a class="p-2 text-dark" href="{% url 'app:myaccount'%}">My Account</a></li>
-      <li><a class="p-2 text-dark" href="#">My Transaction</a></li>
-      <li><a class="p-2 text-dark" href="{% url 'app:index'%}">Log Out</a></li>
-
-    </ul>
-
-  </nav>
-
-
-  <div class="container" style="">
+  {% block body_block %}
+  
+  <div class="container">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
         <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='{% url 'app:product'%}'">
@@ -134,29 +45,21 @@
         </tr>
       </thead>
       <tbody>
+      {% for Transaction in trans_mer %}
         <tr>
-          <th scope="row">1</th>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
-          <td>?</td>
+          <th scope="row">{{Transaction.id}}</th>
+          <td>{{Transaction.trans_time}}</td>
+          <td>{{Transaction.whisky.whisky_name}}</td>
+          <td>{{Transaction.trans_quantity}}</td>
+          <td>{{Transaction.trans_amount}}</td>
+          <td>{{Transaction.customer}}</td>
+          <td>{{Transaction.trans_address}}</td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
 
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-    crossorigin="anonymous"></script>
-</body> <!-- end of page -->
-
+{% endblock %}
+</body> 
 </html>

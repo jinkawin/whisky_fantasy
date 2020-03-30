@@ -4,30 +4,23 @@
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/CustRegister.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CustRegister.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/MerchantForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/MerchantForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/ProductForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/ProductForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0002_auto_20200316_2253.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20200316_2253.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200319_1756.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0005_whisky_merchant.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20200319_1941.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20200320_1607.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/migrations/0008_userprofile_cust_tw_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Customer.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Customer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Location.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Location.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Merchant.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Merchant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/Whisky.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Whisky.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/script/disable_product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Transaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/script/search_location.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/search_location.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/test/img.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/add_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/add_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/base_mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base_mainPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/edit_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/edit_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/login_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/login_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/mer_transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/mer_transaction.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/profile_backup.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/register_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_customer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/register_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_merchant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

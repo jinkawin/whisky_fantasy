@@ -4,23 +4,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
-
+    <title>Register</title>
 </head>
 
-<body style="background-color: #406E8E;">
+<body>
     {% block body_block %}
-
+    <!-- head bar -->
     <div class="container" style="width: 600px;">
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
             <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
         </div>
-
-
+        <!-- register form -->
         <div class="row" style="background-color:white;">
             <form class="form-signin" role="form" method="post" action="{% url 'app:merchant_register' %}">
                 {% csrf_token %}
@@ -51,17 +45,17 @@
                 {% if registered %}
                 <p>Registered successfully! Please login</p>
                 {% endif %}
-
             </form>
         </div>
+        <!-- Login link -->
         <div class="row" style="background-color:black;height: 40px;">
             <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
                 Already a Member?
                 <a href="{% url 'app:merchant_login' %}">Log In</a>
             </div>
         </div>
-
     </div>
+    <!-- JavaScript -->
     <script src="/static/script/register_validation.js/"></script>
 
     {% endblock %}

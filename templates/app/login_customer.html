@@ -4,23 +4,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!--    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/sign-in/">-->
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
-
+    <title>Login</title>
 </head>
 
-<body style="background-color: #406E8E;">
+<body >
     {% block body_block %}
+    <!-- head bar -->
     <div class="container" style="width: 600px;">
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
             <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
         </div>
-
+        <!-- login form -->
         <div class="row" style="background-color:white;">
             <form class="form-signin" role="form" method="post" action="{% url 'app:cust_login' %}" >
                 {% csrf_token %}
@@ -49,6 +43,7 @@
                     Twitter</button>
             </form>
         </div>
+        <!-- register link -->
         <div class="row" style="background-color:black;height: 40px;">
             <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
                 Not a Member?

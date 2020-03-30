@@ -1,0 +1,13 @@
+.ui-autocomplete {
+    max-height: 150px;
+    border-style: solid;
+    border-top: none;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color:gainsboro;
+    overflow-y: auto;
+    width: 300px;
+  }
+    .ui-helper-hidden-accessible{
+        display: none;
+    }

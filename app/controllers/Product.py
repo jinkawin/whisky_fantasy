@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from app.forms.ProductForm import ProductForm
+from app.tables import UserProfile
 from app.tables.Whisky import Whisky, Location
 
 import json
@@ -12,10 +13,11 @@ import json
 
 @login_required
 def productList(request):
+    profile = UserProfile.objects.get(user=request.user)
     product = Whisky.objects.filter(merchant=request.user).order_by('-id')
     print(product)
 
-    return render(request, 'app/product.html', {'product': product})
+    return render(request, 'app/product.html', {'product': product,'profile':profile})
 
 
 def search_page(request):
@@ -26,14 +28,16 @@ def search_page(request):
 
 
 def product_detail(request):
+    profile = UserProfile.objects.get(user=request.user)
     if request.method == 'GET':
         product_id = request.GET.get('product_id')
         product = Whisky.objects.get(id=product_id)
-        return render(request, 'app/edit_product.html', {'product': product})
+        return render(request, 'app/edit_product.html', {'product': product,'profile':profile})
 
 
 @login_required
 def addProduct(request):
+    profile = UserProfile.objects.get(user=request.user)
     locationObj = Location.objects.all()
     locations = json.dumps([location.location_name for location in locationObj])
 
@@ -49,12 +53,12 @@ def addProduct(request):
             print(product.errors)
     else:
         product = ProductForm()
-    return render(request, 'app/add_product.html', {'product': product, 'locations': locations})
+    return render(request, 'app/add_product.html', {'product': product, 'locations': locations,'profile':profile})
 
 
 @login_required
 def editProduct(request):
-    # if request.method == 'GET':
+    profile = UserProfile.objects.get(user=request.user)
 
     if request.method == 'POST':
         product_id = request.POST.get('id')
@@ -77,7 +81,7 @@ def editProduct(request):
         product = Whisky.objects.get(id=product_id)
         locationObj = Location.objects.all()
         locations = json.dumps([location.location_name for location in locationObj])
-        return render(request, 'app/edit_product.html', {'product': product, 'locations': locations})
+        return render(request, 'app/edit_product.html', {'product': product, 'locations': locations,'profile':profile})
 
 
 @login_required
