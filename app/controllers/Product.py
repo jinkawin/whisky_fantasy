@@ -49,7 +49,7 @@ def addProduct(request):
             product.save()
             return redirect(reverse('app:product'))
         else:
-            print('--------- Errro -------------')
+            print('--------- Error -------------')
             print(product.errors)
     else:
         product = ProductForm()
