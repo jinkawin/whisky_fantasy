@@ -1,59 +1,51 @@
-<!DOCTYPE html>
 {% extends 'app/base.html' %}
 {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
 
-<body >
-    {% block body_block %}
-    <!-- head bar -->
-    <div class="container" style="width: 600px;">
-        <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
-            <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
+{% block body_block %}
+<div style="background-color: ">
+<!-- head bar -->
+<div class="container" style="width: 600px;">
+    <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
+        <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
+    </div>
+    <!-- login form -->
+    <div class="row" style="background-color:white;">
+        <form class="form-signin" role="form" method="post" action="{% url 'app:cust_login' %}" >
+            {% csrf_token %}
+            <div class="btn-group btn-group-sm" style="width: inherit;">
+                <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
+                <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'"
+                    style="border-color: #D29062; color: #d29062;">Merchant</button>
+            </div><br /><br />
+
+            {% if err_msg %}
+                <p style="color:red;">{{ err_msg }}</p>
+            {% endif %}
+
+            <label for="id_username">Username :</label><br />
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required
+                autofocus>
+            <label for="id_password">Password :</label>
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
+                required><br />
+            <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
+                style="background-color: #818181;color: white;">Log In</button>
+            <p class="text-center">or</p>
+            <button class="btn btn-lg btn-primary btn-block" id="facebook-button" data-url="{% url 'app:facebook_login' %}" data-redirect="{% url 'app:myaccount' %}">Login with
+                Facebook</button>
+            <button class="btn btn-lg btn-primary btn-block" id="twitter-button" onclick="window.location.href = '{% url 'app:twitter_login' %}'">Login with
+                Twitter</button>
+        </form>
+    </div>
+    <!-- register link -->
+    <div class="row" style="background-color:black;height: 40px;">
+        <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
+            Not a Member?
+            <a href="{% url 'app:cust_register' %}">Register Here</a>
         </div>
-        <!-- login form -->
-        <div class="row" style="background-color:white;">
-            <form class="form-signin" role="form" method="post" action="{% url 'app:cust_login' %}" >
-                {% csrf_token %}
-                <div class="btn-group btn-group-sm" style="width: inherit;">
-                    <button type="button" class="btn" style="background-color: #D29062;color:white;">Customer</button>
-                    <button type="button" class="btn" onclick="location.href = '{% url 'app:merchant_login' %}'"
-                        style="border-color: #D29062;color: #d29062;">Merchant</button>
-                </div><br /><br />
-
-                {% if err_msg %}
-                    <p style="color:red;">{{ err_msg }}</p>
-                {% endif %}
-
-                <label for="id_username">Username :</label><br />
-                <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required
-                    autofocus>
-                <label for="id_password">Password :</label>
-                <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
-                    required><br />
-                <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
-                    style="background-color: #818181;color: white;">Log In</button>
-                <p class="text-center">or</p>
-                <button class="btn btn-lg btn-primary btn-block" id="facebook-button" data-url="{% url 'app:facebook_login' %}" data-redirect="{% url 'app:myaccount' %}">Login with
-                    Facebook</button>
-                <button class="btn btn-lg btn-primary btn-block" id="twitter-button" onclick="window.location.href = '{% url 'app:twitter_login' %}'">Login with
-                    Twitter</button>
-            </form>
-        </div>
-        <!-- register link -->
-        <div class="row" style="background-color:black;height: 40px;">
-            <div class="col-md-12 text-center" style="color: #D29062;padding-top: 5px;">
-                Not a Member?
-                <a href="{% url 'app:cust_register' %}">Register Here</a>
-            </div>
-        </div>
-
     </div>
 
-    {% endblock %}
-</body>
-
-</html>
+</div>
+</div>
+{% endblock %}

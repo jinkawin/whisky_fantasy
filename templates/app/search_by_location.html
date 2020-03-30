@@ -80,6 +80,8 @@
         <!-- Sort Bar -->
         <div class="container">
             <br />
+
+
             <ul class="nav nav-tabs justify-content-end">
                 <li class="nav-item disabled">
                     <a class="nav-link disabled">Sort By:</a>
@@ -97,10 +99,25 @@
         </div>
 
         <!-- Main Content -->
+
         <br />
-        <div class="container bg-white" style="border:1px solid coral;">
-            <!-- Product 1 -->
+        <div class="container">
             <div class="row">
+                <div class="col-md-2"> Select a Location: </div>
+
+                <select class="selectpicker">
+                    <option value="" selected disabled>Please select</option>
+                    <option>Location 1</option>
+                    <option>Location 2</option>
+                    <option>Location 3</option>
+                </select>
+            </div>
+        </div>
+        <br />
+        <div class="container bg-white rounded">
+            <!-- Product 1 -->
+            <br />
+            <div class="row col-md-12">
                 <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
                     <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
                         class="img-fluid"/>
@@ -111,12 +128,17 @@
                     </div>
                     <div class="row">
                         <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
+                            £ {{ Whisky.whisky_price }}
+                        </p>
                     </div>
                 </div>
             </div>
             <hr class="row"/>
             <!-- Product 2 -->
-            <div class="row">
+            <div class="row col-md-12">
                 <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
                     <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
                         class="img-fluid"/>
@@ -127,12 +149,17 @@
                     </div>
                     <div class="row">
                         <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
+                            £ {{ Whisky.whisky_price }}
+                        </p>
                     </div>
                 </div>
             </div>
             <hr class="row"/>
             <!-- Product 3 -->
-            <div class="row">
+            <div class="row col-md-12">
                 <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
                     <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
                         class="img-fluid"/>
@@ -143,6 +170,11 @@
                     </div>
                     <div class="row">
                         <p class="col-md-12">{Whisky_Description}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
+                            £ {{ Whisky.whisky_price }}
+                        </p>
                     </div>
                 </div>
             </div>

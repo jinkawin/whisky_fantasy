@@ -1,0 +1,27 @@
+.navbar-dark .navbar-brand{
+    color: #D29062;
+}
+/* Button Before */
+.btn-outline-success, .btn-primary{
+    color:white;
+    background-color:#D29062;
+    border-color:#D29062;
+}
+/* Button Hover */
+.btn-outline-success:hover, .btn-primary:hover{
+    color:white;
+    background-color:#D29062;
+    border-color:#D29062;
+}
+/* Button Selected */
+.btn-outline-success.disabled, .btn-primary:disabled{
+    color:white;
+    background-color:#D29062;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle{
+    color:white;
+    background-color:#D29062;
+    border-color:#D29062;
+}

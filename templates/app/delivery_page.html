@@ -12,28 +12,33 @@
             color: #D29062;
         }
         /* Button Before */
-        .btn-outline-success, .btn-primary{
+        .btn-outline-success, .btn-primary, #confirm_btn{
             color:white;
             background-color:#D29062;
             border-color:#D29062;
         }
         /* Button Hover */
-        .btn-outline-success:hover, .btn-primary:hover{
+        .btn-outline-success:hover, .btn-primary:hover, #confirm_btn:hover{
             color:white;
             background-color:#D29062;
             border-color:#D29062;
         }
         /* Button Selected */
-        .btn-outline-success.disabled, .btn-primary:disabled{
+        .btn-outline-success.disabled, .btn-primary:disabled, #confirm_btn:disabled{
             color:white;
             background-color:#D29062;
         }
         .btn-outline-success:not(:disabled):not(.disabled):active,
         .btn-primary:not(:disabled):not(.disabled):active,
+        #confirm_btn:not(:disabled):not(.disabled):active,
         .show>.btn-primary.dropdown-toggle{
             color:white;
             background-color:#D29062;
             border-color:#D29062;
+        }
+
+        #confirm_btn{
+
         }
         </style>
     </head>
@@ -84,52 +89,54 @@
             <br />
             <form>
                 <div class="row form-group">
-                    <label for="staticEmail" class="col-md-3 col-form-label">Email</label>
+                    <label for="name" class="col-md-3 col-form-label">*Name:</label>
                     <div class="col-md-9">
-                      <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com" />
+                      <input type="text" class="form-control" id="name" placeholder="Receiver Name" aria-describedby="nameHelp" required/>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label for="addressLine1" class="col-md-3 col-form-label">Address Line 1:</label>
+                    <label for="addressLine1" class="col-md-3 col-form-label">*Address Line 1:</label>
                     <div class="col-md-9">
-                      <input type="text" class="form-control" id="addressLine1" placeholder="Flat Unit, Building Name" />
+                      <input type="text" class="form-control" id="addressLine1" placeholder="Flat Unit, Building Name" aria-describedby="addressHelp" required/>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label for="addressLine2" class="col-md-3 col-form-label">Address Line 1:</label>
+                    <label for="addressLine2" class="col-md-3 col-form-label">Address Line 2:</label>
                     <div class="col-md-9">
                       <input type="text" class="form-control" id="addressLine2" placeholder="Street Name" />
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label for="city" class="col-md-3 col-form-label">Town / City:</label>
+                    <label for="city" class="col-md-3 col-form-label">*Town / City:</label>
                     <div class="col-md-9">
-                      <input type="text" class="form-control" id="city" placeholder="City Name"/>
+                      <input type="text" class="form-control" id="city" placeholder="City Name" aria-describedby="cityHelp" required/>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label for="postcode" class="col-md-3 col-form-label">Postcode:</label>
+                    <label for="postcode" class="col-md-3 col-form-label">*Postcode:</label>
                     <div class="col-md-9">
-                      <input type="text" class="form-control" id="postcode" placeholder="Postal Code"/>
+                      <input type="text" class="form-control" id="postcode" placeholder="Postal Code" aria-describedby="postcodeHelp" required/>
                     </div>
                 </div>
 
                 <div class="row form-group">
-                    <label for="phone" class="col-md-3 col-form-label">Contact No.:</label>
+                    <label for="phone" class="col-md-3 col-form-label">*Contact No.:</label>
                     <label class="col-md-1 col-form-label"><strong>+44 (0)</strong></label>
                     <div class="col-md-8">
-                      <input type="text" class="form-control" id="phone" placeholder="e.g. 123456789"/>
+                      <input type="text" class="form-control" id="phone" placeholder="e.g. 123456789" aria-describedby="phoneHelp" required/>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-10"></div>
                     <div class="col-md-1">
-                        <a type="submit" class="btn btn-primary float-right" href="payment_page.html">Confirm</a>
+                        <button type="submit" class="btn btn-primary float-right">
+                            Confirm
+                        </button>
                     </div>
                     <div class="col-md-1">
                         <a type="reset" class="btn btn-light float-right" href="detail_page.html">Cancel</a>
