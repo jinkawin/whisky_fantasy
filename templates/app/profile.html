@@ -9,10 +9,10 @@
             <div class="col-md-5 text-center">
                 <h2 style="color: #D29062;">My Account</h2>
                 {% if profile.picture %}
-                <img src="/media/{{profile.picture}}/" alt="You have not uploaded a photo!" class="p-4" onclick=""
+                <img src="/media/{{profile.picture}}" alt="You have not uploaded a photo!" class="p-4" onclick=""
                     style="width: 200px;height: 200px;">               
                 {% else %}
-                <img src="/static/images/profile.png/" alt="No photo!" class="p-4" onclick=""
+                <img src="/static/images/profile.png" alt="No photo!" class="p-4" onclick=""
                     style="width: 200px;height: 200px;">
                 {% endif %}
             </div>
