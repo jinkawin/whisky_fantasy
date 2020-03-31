@@ -9,7 +9,19 @@ from app.forms.ProductForm import ProductForm
 from app.tables.UserProfile import UserProfile
 from app.tables.Whisky import Whisky, Location
 from django.views import View
+
 import json
+
+'''
+Overview:
+
+def productList
+def searchPrice
+def prodecut_detail
+def addProduct
+def editProduct
+def set_status
+'''
 
 @method_decorator(login_required)
 def productList(request):
@@ -19,11 +31,9 @@ def productList(request):
 
     return render(request, 'app/product.html', {'product': product,'profile':profile})
 
-
 def searchPrice(request):
     product = Whisky.objects.all()
     print(product)
-
     return render(request, 'app/search_by_price.html', {'product': product})
 
 

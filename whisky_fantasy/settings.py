@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', # Check/add this line!
             ],
         },
     },
@@ -127,15 +128,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [STATIC_DIR, ]
-
-
 
 REGISTRATION_OPEN = True
 REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = 'app:index'
-LOGIN_URL = 'app:cust_login'
+LOGIN_URL = 'cust_login'
 
 # Media - uploaded by user
 MEDIA_ROOT = MEDIA_DIR

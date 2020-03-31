@@ -2,7 +2,6 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<!-- <div class="bg-light"> -->
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
     <div class="container">
@@ -12,86 +11,29 @@
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <!-- right side menu -->
             <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
+                {% if user.is_authenticated %}
                 <li class="nav-item dropdown ml-auto">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
+                        aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
                         Hi,{{ user }}
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">My Account</a>
-                        <a class="dropdown-item" href="#">My Transaction</a>
+                        <a class="dropdown-item" href="{% url 'app:myaccount' %}">My Account</a>
+                        <a class="dropdown-item" href="{% url '' %}">My Transaction</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log Out</a>
+                        <a class="dropdown-item" href="{% url 'auth_logout' %}?next=/app/">Log Out</a>
                     </div>
                 </li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Register Here</a></li>
+                <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
+                {% endif %}
             </ul>
+
         </div>
     </div>
  </nav>
 
- <div class="container-fluid">
-     <div class="row">
-         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-             <div class="w-75 ml-3">
-                 <input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
-             </div>
-             <div class="sidebar-sticky" id="categories-listing">
-                 {% block sidebar_block %}
-                     {% get_category_list category %}
-                 {% endblock %}
-             </div>
-         </nav>
-
-         <main role="main" class="col-md-9  ml-sm-auto col-lg-10 px-4">
-             <!-- Sort Bar -->
-             <!-- <div class="container"> -->
-                 <br />
-                 <ul class="nav nav-tabs justify-content-end">
-                     <li class="nav-item disabled">
-                         <a class="nav-link disabled">Sort By:</a>
-                     </li>
-                       <li class="nav-item">
-                           <a class="nav-link active" href="{% url 'app:search_by_price'%}">Price</a>
-                       </li>
-                       <li class="nav-item disabled">
-                           <a class="nav-link disabled">|</a>
-                       </li>
-                       <li class="nav-item">
-                           <a class="nav-link" href="search_by_location.html">Location</a>
-                       </li>
-                 </ul>
-             <!-- </div> -->
-
-             <!-- Main Content: Product Listing -->
-             <br />
-             <div class="container bg-white" style="border: 1px solid coral;">
-                 {% for Whisky in product %}
-                 <div class="row  col-md-12">
-                     <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                         <img src="/media/{{Whisky.whisky_img}}" class="img-fluid"/>
-                     </div>
-
-                     <div class="col-md-9 ml-auto">
-                         <div class="row">
-                             <a href="detail_page.html" class="col-md-12">{{Whisky.whisky_name}}</a>
-                         </div>
-                         <div class="row">
-                             <p class="col-md-12">{{Whisky.whisky_description}}</p>
-                         </div>
-                         <div class="row">
-                             <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
-                                 £ {{ Whisky.whisky_price }}
-                             </p>
-                         </div>
-                     </div>
-                 </div>
-                 <hr class="row"/>
-                 {% endfor %}
-             </div>
-         </main>
-     </div>
- </div>
 {% endblock %}

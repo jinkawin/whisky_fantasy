@@ -1,42 +1,37 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 
 <html lang="en">
     <!-- This is Header Section -->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+        <link rel="icon" href="{% static 'images/icon.png' %}" />
         <title>Whishy Fantasy</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+        <!-- Custom styles for this template -->
+        <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="frontend_style.css"/>
+        {% block header_block %}
+        {% endblock %}
     </head>
 
     <!-- This is Body Section -->
-    <body class="container-fluid bg-light">
+    <body>
+        <div>
+            <!-- This is Content Section -->
+            {% block body_block %}
+            {% endblock %}
+        </div>
 
-        {% block body_block %}
-        {% endblock %}
-
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <span>&copy; 2020 Tango With Django 2 &middot;<a href="#">Privacy</a>&middot;<a href="#">Terms</a></span>
-        </footer>
-
-        <!-- This is JavaScript -->
-        <script src="{% static "script/app_ajax.js" %}" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-            crossorigin="anonymous"></script>
-        <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="{% static 'script/facebook.js' %}"></script>
+        <!-- This is JS Section -->
+        <script src="{% static "js/facebook.js" %}"></script>
+        <script src="{% static "js/app_ajax.js" %}" crossorigin="anonymous"></script>
+        <script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.js"></script>
     </body>
 
 </html>
