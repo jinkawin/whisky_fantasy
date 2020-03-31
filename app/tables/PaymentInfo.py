@@ -13,8 +13,8 @@ class PaymentInfo(models.Model):
         expiryMonth+expiryYear:     Expiry Year of the Payment Card
         cvv:                        Secret Code of the Payment Card
     '''
-    # PaymentInfo Model link to Customer Model as Foreign Key to add as a Transaction record for the specific Customer
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    # PaymentInfo Model link to User Model as Foreign Key to add as a Transaction record for the specific Customer
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     name_card = models.CharField(max_length=40)
     cardNo = models.PositiveIntegerField()
     expiryYear = models.PositiveIntegerField()

@@ -21,7 +21,6 @@ class Whisky(models.Model):
     '''
     TEXT_MAX_LENGTH = 255
 
-    category = models.ForeignKey(WhiskyList, on_delete=models.CASCADE)
     whisky_location = models.ForeignKey(Location, on_delete=models.CASCADE, to_field="location_name")
     whisky_name = models.CharField(max_length=TEXT_MAX_LENGTH, null=False)
     whisky_description = models.CharField(max_length=TEXT_MAX_LENGTH, null=False)

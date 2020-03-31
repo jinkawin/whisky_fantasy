@@ -74,7 +74,7 @@ def product_detail(request):  # render product details when browsing a single pr
         return redirect(reverse('app:delivery', kwargs={'trans_id': transaction_info.id}))
 
 
-@method_decorator(login_required)
+@login_required
 def addProduct(request):
     profile = UserProfile.objects.get(user=request.user)
     locationObj = Location.objects.all()
@@ -95,7 +95,7 @@ def addProduct(request):
     return render(request, 'app/add_product.html', {'product': product, 'locations': locations, 'profile': profile})
 
 
-@method_decorator(login_required)
+@login_required
 def editProduct(request):
     profile = UserProfile.objects.get(user=request.user)
 

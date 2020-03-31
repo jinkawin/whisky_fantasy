@@ -70,7 +70,7 @@ def populate():
     cats = {
         'Scotland': {'pages': whiskies_scotland, 'views': 128},
     }
-    merchant = User.objects.get_or_create(username="merchant11")[0]
+    merchant = User.objects.get_or_create(username="merchant")[0]
     merchant.set_password('123456')
     merchant.save()
 

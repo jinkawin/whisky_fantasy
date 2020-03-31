@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 
 from app.tables import UserProfile
 
 # profile allows users to view and edit their personal details
-@method_decorator(login_required)
+@login_required
 def profile(request):
     # Connect to UserProfile Model to obtain user details
     user_profile = UserProfile.objects.get(user=request.user)

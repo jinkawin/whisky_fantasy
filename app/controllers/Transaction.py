@@ -1,12 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.utils.decorators import method_decorator
 from app.tables import Transaction, UserProfile
 from app.tables.Whisky import Whisky
 
 # transaction allows user (Customer and Merchant) to view their transaction record
-@method_decorator(login_required)
+@login_required
 def transaction(request):
     # Connect to UserProfile Model to obtain user information
     profile = UserProfile.objects.get(user=request.user)

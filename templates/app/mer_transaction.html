@@ -29,9 +29,10 @@
           <th scope="col">ID</th>
           <th scope="col">Date Time</th>
           <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
           <th scope="col">Quantity</th>
           <th scope="col">Total Amount</th>
-          <th scope="col">Customer ID</th>
+          <th scope="col">Customer</th>
           <th scope="col">Delivered Address</th>
         </tr>
       </thead>
@@ -42,6 +43,7 @@
           <th scope="row">{{Transaction.id}}</th>
           <td>{{Transaction.trans_time}}</td>
           <td>{{Transaction.whisky.whisky_name}}</td>
+          <td>{{Transaction.trans_price}}</td>
           <td>{{Transaction.trans_quantity}}</td>
           <td>{{Transaction.trans_amount}}</td>
           <td>{{Transaction.customer}}</td>

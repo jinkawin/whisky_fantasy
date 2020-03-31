@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MerchantLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MerchantLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0006_whiskylist.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/Whisky.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Whisky.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/population_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/population_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/search_by_price.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/search_by_price.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whisky_fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisky_fantasy/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +79,10 @@
       <screen x="0" y="23" width="1366" height="741" />
     </state>
     <state x="412" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1366.741@0.23.1366.741" timestamp="1584707882957" />
-    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585676275925">
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585682544654">
       <screen x="0" y="23" width="1366" height="741" />
     </state>
-    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1585676275925" />
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1585682544654" />
     <state x="374" y="158" width="667" height="486" key="find.popup" timestamp="1585673813517">
       <screen x="0" y="23" width="1366" height="741" />
     </state>
