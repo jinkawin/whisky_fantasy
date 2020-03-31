@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 from app.tables.Location import Location
+from app.tables.WhiskyList import WhiskyList
 
 class Whisky(models.Model):
     '''
@@ -18,6 +19,7 @@ class Whisky(models.Model):
     '''
     TEXT_MAX_LENGTH = 255
 
+    category = models.ForeignKey(WhiskyList, on_delete=models.CASCADE)
     whisky_location = models.ForeignKey(Location, on_delete=models.CASCADE, to_field="location_name")
     whisky_name = models.CharField(max_length=TEXT_MAX_LENGTH, null=False)
     whisky_description = models.CharField(max_length=TEXT_MAX_LENGTH, null=False)
@@ -27,6 +29,9 @@ class Whisky(models.Model):
     whisky_img_link = models.CharField(max_length=TEXT_MAX_LENGTH, blank=True)
     whisky_img = models.ImageField(upload_to='product_images',blank=True)
     merchant = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        super(Whisky, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Whiskies'
