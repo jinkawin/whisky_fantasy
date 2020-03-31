@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/population_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Index.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Payment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/PaymentInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/PaymentInfo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/WhiskyList.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/WhiskyList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tables/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/base_mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base_mainPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/detail_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/detail_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/payment_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/payment_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/search_by_location.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Index.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/search_by_price.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/search_by_price.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whisky_fantasy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisky_fantasy/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

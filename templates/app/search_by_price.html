@@ -25,6 +25,7 @@
         <!-- Main Content -->
         <br />
         <div class="container bg-white" >
+            {% if product %}
             <!-- Product 1 -->
             {% for Whisky in product %}
             <div class="row  col-md-12">
@@ -52,5 +53,8 @@
             </div>
             <hr class="row"/>
             {% endfor %}
+            {% else %}
+                There is no Whisky for sale. Sorry.
+            {% endif %}
         </div>
 {% endblock %}
