@@ -11,6 +11,7 @@ from libs.Twitter import Twitter
 from app.models import Customer, UserProfile
 from app.form import CustomerForm, UserProfileForm
 
+# twitterLogin allows user to login through Twitter API
 def twitterLogin(request):
     response_data = {}
 

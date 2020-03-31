@@ -1,16 +1,20 @@
+# Import External Libraries
 from django.contrib.auth.models import User
 from django.db import models
+# Assign Internal Linkage Models
+from app.tables.Customer import Customer
 
-"""
-    Variables:
-        name_card:  Payment Person Name
-        cardNo:     Payment Card Number
-        expiryYear + expiryMonth:   Expiry Date of the Payment Card
-        cvv:        3-pin Security Code behind the Card
-"""
-
+# PaymentInfo Model is used to store payment details of the User (Customer)
 class PaymentInfo(models.Model):
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    '''
+    Variables:
+        name_card:                  Owner Name of the Payment Card
+        cardNo:                     Payment Card Number
+        expiryMonth+expiryYear:     Expiry Year of the Payment Card
+        cvv:                        Secret Code of the Payment Card
+    '''
+    # PaymentInfo Model link to Customer Model as Foreign Key to add as a Transaction record for the specific Customer
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     name_card = models.CharField(max_length=40)
     cardNo = models.PositiveIntegerField()
     expiryYear = models.PositiveIntegerField()

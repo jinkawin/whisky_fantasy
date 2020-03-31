@@ -6,27 +6,29 @@ from app.forms import PaymentForm
 from app.tables import Transaction
 from app.tables.Whisky import Whisky
 
-# this action will happen when user is at payment page [Customer]
+# payment validates the payment details and create new Transaction data if successful
 def payment(request, trans_id):
+    # Obtain the transaction id from Delivery Page
     trans_info = Transaction.objects.get(id=trans_id)
+    # Obtain product id
     product = Whisky.objects.get(id=trans_info.whisky.id)
     paid = False
-    # When user select 'Pay' button
+    # When user select on 'Pay' button
     if request.method == 'POST':
+        # Check whether product is available for purchase or not
         if product.whisky_quantity >= trans_info.trans_quantity:
             payment_form = PaymentForm(request.POST)
             if payment_form.is_valid():
-                # Connect to Payment model and create new record
+                # Save Payment details into PaymentForm
                 payment_info = payment_form.save(commit=False)
                 payment_info.customer = request.user
                 payment_info.save()
-
-                # Update transaction status as payment successful
+                # Save Transaction details
                 trans_info.trans_status = 1
                 trans_info.save()
 
                 paid = True
-                # Update the quantity value for the product
+                # Update quantity of product left after purchased
                 product.whisky_quantity = product.whisky_quantity - trans_info.trans_quantity
 
                 # Save all changes into the Whisky model
@@ -37,7 +39,7 @@ def payment(request, trans_id):
             else:
                 print(payment_form.errors)
         else:
-            return HttpResponse('The stock of this product is not enough, please choose another product')
+            return HttpResponse('The stock of this product is not enough. Please choose another product.')
 
     else:
         payment_form = PaymentForm()

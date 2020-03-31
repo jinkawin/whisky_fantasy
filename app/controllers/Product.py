@@ -1,6 +1,8 @@
 # Import External Libraries
 import json
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -8,9 +10,10 @@ from django.utils import timezone
 
 # Import Internal Libraries
 from app.forms.ProductForm import ProductForm
-from app.tables import UserProfile
+from app.tables import UserProfile, WhiskyList
 from app.tables.Transaction import Transaction
 from app.tables.Whisky import Whisky, Location
+from django.views import View
 
 '''
 Overview:
@@ -35,7 +38,6 @@ def productList(request):  # render product list for merchant
 def search_page(request):  # render product list for search page
     product = Whisky.objects.filter(whisky_status=1).order_by('whisky_price')
     print(product)
-
     return render(request, 'app/search_by_price.html', {'product': product})
 
 
@@ -72,7 +74,7 @@ def product_detail(request):  # render product details when browsing a single pr
         return redirect(reverse('app:delivery', kwargs={'trans_id': transaction_info.id}))
 
 
-@login_required
+@method_decorator(login_required)
 def addProduct(request):
     profile = UserProfile.objects.get(user=request.user)
     locationObj = Location.objects.all()
@@ -93,7 +95,7 @@ def addProduct(request):
     return render(request, 'app/add_product.html', {'product': product, 'locations': locations, 'profile': profile})
 
 
-@login_required
+@method_decorator(login_required)
 def editProduct(request):
     profile = UserProfile.objects.get(user=request.user)
 
@@ -129,10 +131,72 @@ def set_status(request):
 
     try:
         product = Whisky.objects.get(id=product_id)
-    except Whisky.DoseNoExist:
+    except Whisky.DoseNotExist:
         return HttpResponse(-1)
     except ValueError:
         return HttpResponse(-1)
     product.whisky_status = status
     product.save()
     return render(request, 'app/product.html', {'id': product_id, 'status': status})
+
+######################################################################################################
+class ShowCategoryView(View):
+    def create_context_dict(self, category_name_slug):
+        context_dict = {}
+        try:
+            category = WhiskyList.objects.get(slug=category_name_slug)
+            pages = Whisky.objects.filter(category=category).order_by('-views')
+
+            context_dict['whisky'] = pages
+            context_dict['whisky_list'] = category
+        except WhiskyList.DoesNotExist:
+            context_dict['whisky'] = None
+            context_dict['whisky_list'] = None
+        return context_dict
+
+    def get(self, request, category_name_slug):
+        context_dict = self.create_context_dict(category_name_slug)
+        return render(request, 'app/category.html', context_dict)
+
+    @method_decorator(login_required)
+    def post(self, request, category_name_slug):
+        context_dict = self.create_context_dict(category_name_slug)
+        query = request.POST['query'].strip()
+        if query:
+            context_dict['result_list'] = run_query(query)
+            context_dict['query'] = query
+        return render(request, 'app/category.html', context_dict)
+
+class SearchPrice(View):
+    def create_context_dict(self, whisky_name_slug):
+        context_dict = {}
+        try:
+            whisky = Whisky.objects.get(slug=category_name_slug).order_by('whisky_price')
+            context_dict['whisky'] = category
+        except Whisky.DoesNotExist:
+            context_dict['whisky'] = None
+        return context_dict
+
+    def get(self, request, whisky_name_slug):
+        context_dict = self.create_context_dict(category_name_slug)
+        return render(request, 'app/search_by_price.html', context_dict)
+
+class CategorySuggestionView(View):
+    def get(self, request):
+        if 'suggestion' in request.GET:
+            suggestion = request.GET['suggestion']
+        else:
+            suggestion = ''
+        category_list = get_category_list(max_results=8, starts_with=suggestion)
+        if len(category_list) == 0:
+            category_list = WhiskyList.objects.order_by('-views')
+        return render(request, 'app/search_by_price.html', {'categories': category_list})
+
+def get_category_list(max_results=0, starts_with=''):
+    category_list = []
+    if starts_with:
+        category_list = WhiskyList.objects.filter(name__istartswith=starts_with)
+    if max_results > 0:
+        if len(category_list) > max_results:
+            category_list = category_list[:max_results]
+    return category_list

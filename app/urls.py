@@ -25,5 +25,4 @@ urlpatterns = [
     path('delivery/<trans_id>/',views.delivery,name= 'delivery'),
     path('payment/<trans_id>/',views.payment,name='payment'),
     path('search_product/',views.search_product,name ='search_product')
-
 ]
