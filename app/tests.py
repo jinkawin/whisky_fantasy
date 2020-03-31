@@ -4,7 +4,7 @@ from django.test import TestCase
 class SearchViewTests(TestCase):
     def test_index_view_with_no_product(self):
         """
-        If no categories exist, the appropriate message should be displayed.
+        If no Whisky exist, the appropriate message should be displayed.
         """
         response = self.client.get(reverse('app:search_by_price'))
         self.assertEqual(response.status_code, 200)
