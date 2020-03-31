@@ -18,7 +18,10 @@ urlpatterns = [
     path('product/',views.productList,name='product'),
     path('product_status/',views.set_status, name='product_status'),
     path('edit_product/',views.editProduct,name='edit_product'),
-    path('search_by_price/',views.search_page,name='search_by_price'),
-    path('search_location/',views.searchLocation,name='search_location')
-
+    # The following are urls specialised for frontend only
+    path('search_by_price/',views.SearchPrice.as_view(), name='search_by_price'),
+    # path('search_by_location/',views.searchLocation, name='search_by_location'),
+    # path('detail_page/',views.detailsProduct, name='detail_page'),
+    # path('delivery_page/',views.deliveryDetails,name='delivery'),
+    # path('payment_page/',views.payment,name='payment'),
 ]

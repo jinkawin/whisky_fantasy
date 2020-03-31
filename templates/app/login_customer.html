@@ -1,7 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
-
 {% block body_block %}
 <div style="background-color: ">
 <!-- head bar -->
@@ -30,7 +29,7 @@
             <input type="password" name="password" id="id_password" class="form-control" placeholder="Password"
                 required><br />
             <button class="btn btn-lg btn-block" type="submit" value="Sublmit"
-                style="background-color: #818181;color: white;">Log In</button>
+                style="background-color: #818181; color: white;">Log In</button>
             <p class="text-center">or</p>
             <button class="btn btn-lg btn-primary btn-block" id="facebook-button" data-url="{% url 'app:facebook_login' %}" data-redirect="{% url 'app:myaccount' %}">Login with
                 Facebook</button>
