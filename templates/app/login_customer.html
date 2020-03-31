@@ -1,12 +1,16 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
+{% block header %}
+<link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
+{% endblock %}
+
 {% block body_block %}
-<div style="background-color: ">
+
 <!-- head bar -->
-<div class="container" style="width: 600px;">
+<div class="container bg-light">
     <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
-        <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
+        <h2 class="col-md-12 text-center" style="padding-top: 25px; color:#D29062;">Whisky Fantasy</h2>
     </div>
     <!-- login form -->
     <div class="row" style="background-color:white;">
@@ -46,5 +50,5 @@
     </div>
 
 </div>
-</div>
+
 {% endblock %}

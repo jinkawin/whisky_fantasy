@@ -2,25 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05396b0a-1bbe-4cea-8661-36bd023f3a13" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/Payment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/forms/PaymentForm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/CustLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/CustLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/Delivery.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Delivery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/MerchantLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/MerchantLogin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/Product.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/Transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/Transaction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/script/search_location.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/search_location.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/test/img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/DeliveryForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/DeliveryForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0002_auto_20200328_1111.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20200328_1422.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20200328_1729.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/Delivery.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Delivery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/PaymentInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/PaymentInfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tables/Transaction.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/tables/Transaction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/frontend_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/frontend_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/productList.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/productList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/add_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/add_product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/base_mainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/base_mainPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/delivery_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/delivery_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/detail_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/detail_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/edit_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/edit_product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/login_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_customer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/login_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/login_merchant.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/mer_transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/mer_transaction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/payment_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/payment_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/app/profile_backup.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/register_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_customer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/app/register_merchant.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/register_merchant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/app/search_by_price.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/app/search_by_price.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,9 +101,9 @@
       <screen x="0" y="23" width="1366" height="741" />
     </state>
     <state x="412" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1366.741@0.23.1366.741" timestamp="1584707882957" />
-    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585395436283">
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585622387424">
       <screen x="0" y="23" width="1366" height="741" />
     </state>
-    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1585395436283" />
+    <state x="483" y="147" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1366.741@0.23.1366.741" timestamp="1585622387424" />
   </component>
 </project>

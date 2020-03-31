@@ -1,120 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Import Bootstrap 4.2 -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <title>Whisky Fantasy</title>
-        <style>
-            .navbar-dark .navbar-brand{
-                color: #D29062;
-            }
-            /* Button Before */
-            .btn-outline-success, .btn-primary{
-                color:white;
-                background-color:#D29062;
-                border-color:#D29062;
-            }
-            /* Button Hover */
-            .btn-outline-success:hover, .btn-primary:hover{
-                color:white;
-                background-color:#D29062;
-                border-color:#D29062;
-            }
-            /* Button Selected */
-            .btn-outline-success.disabled, .btn-primary:disabled{
-                color:white;
-                background-color:#D29062;
-            }
-            .btn-outline-success:not(:disabled):not(.disabled):active,
-            .btn-primary:not(:disabled):not(.disabled):active,
-            .show>.btn-primary.dropdown-toggle{
-                color:white;
-                background-color:#D29062;
-                border-color:#D29062;
-            }
-        </style>
-    </head>
 
-    <body class="bg-light">
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
-            <div class="container">
-                <div class="row col-md-12 col-sm-12">
-                    <!-- icon+homepage -->
-                    <a class="navbar-brand" href="search_by_price.html">Whisky Fantasy</a>
-                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+{% extends 'app/base_mainPage.html' %}
 
-                    <!-- search bar & button -->
-                    <div class="navbar-collapse col-md-9 col-sm-12"  id="navbarSupportedContent">
-                        <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:index' %}">
-                          <!--{% csrf_token %}-->
-                          <input class="form-control" type="text" name="query" id="query" value="" />
-                          <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
-                        </form>
-                    </div>
-
-                    <!-- right side menu -->
-                    <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
-                        <li class="nav-item dropdown ml-auto">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
-                                Hi, {{user}}
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">My Account</a>
-                                <a class="dropdown-item" href="#">My Transaction</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+{% block body_block%}
+<body class="bg-light">
+   
+    <!-- Main Content -->
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="height: 400px; width: 400px; border: 1px solid red;">
+                <img src="/media/{{product.whisky_img}}/"
+                    class="img-fluid mx-auto d-block" />
             </div>
-         </nav>
-
-        <!-- Main Content -->
-        <br />
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3" style="height: 400px; width: 400px; border: 1px solid red;">
-                    <img src="https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg"
-                        class="img-fluid mx-auto d-block" />
+            <div class="col-md-9">
+                <h1 class="row col-md-12">{{product.whisky_name}}</h1>
+                <br />
+                <div class="row col-md-12">
+                    Sold by <a href="#" class="pl-5">{{product.merchant}}</a>
                 </div>
-                <div class="col-md-9">
-                    <h1 class="row col-md-12">{{Whisky.whisky_ame}}</h1>
-                    <br />
-                    <div class="row col-md-12">
-                        Sold by <a href="#">{{Whisky.merchant}}</a>
+                <p class="row col-md-12">{{product.whisky_description}}</p>
+                <br />
+                <div class="row">
+                    <p class="col-md-2">Origin:</p>
+                    <p class="col-md-10">{{product.whisky_location.location_name}}</p>
+                </div>
+                <br />
+
+                <form method="POST" action=".">
+                    {% csrf_token %}
+                    <input type="hidden" name="whisky_id" value="{{product.id}}">
+                    <!-- <input type="hidden" name="trans_price" value="{{product.whisky_price}}"> -->
+                    <div class="row form-group">
+                        <label for="quantity" class="col-md-2 col-form-label">Quantity:</label>
+                        <div class="col-md-2">
+                            <input type="number" class="form-control" id="quantity" name="trans_quantity" value="1" min="0" max="{{product.whisky_quantity}}"
+                                step="1" />
+                        </div>
+                        <div class="col-md-8">
+                            <button type="submit" class="btn btn-primary float-right" >Buy Now</button>
+                        </div>
                     </div>
-                    <p class="row col-md-12">{{Whisky.whisky_description}}</p>
-                    <br />
-                    <p class="row col-md-12">Origin:      {{Whisky_Origin}}</p>
-                    <br />
+                </form>
 
-                        <form>
-                            <div class="row form-group">
-                            <label for="quantity" class="col-md-2 col-form-label">Quantity:</label>
-                            <div class="col-md-2">
-                                <input type="number" class="form-control" id="quantity" value="1" min="0" max="10" step="1"/>
-                            </div>
-                            <div class="col-md-8">
-                                <a type="submit" class="btn btn-primary float-right" href="delivery_page.html">Buy Now</a>
-                            </div>
-                            </div>
-                        </form>
-
-                </div>
             </div>
         </div>
+    </div>
 
-        <!-- JavaScript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    </body>
-</html>
+{% endblock %}

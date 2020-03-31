@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="{% static 'images/icon.png' %}" />
-        <title>Whishy Fantasy</title>
+        <title>Whisky Fantasy</title>
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
         <!-- Custom styles for this template -->
@@ -19,52 +19,22 @@
 
     <!-- This is Body Section -->
     <body>
-        {% if user.is_authenticated %}
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
-            <div class="container">
-                <div class="row col-md-12">
-                    <!-- icon+homepage -->
-                    <a class="navbar-brand" href="{% url 'app:index' %}">Whisky Fantasy</a>
-                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <!-- right side menu -->
-                    <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item dropdown ml-auto">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
-                                Hi,{{ user }}
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{% url 'app:myaccount' %}">My Account</a>
-                                <a class="dropdown-item" href="#">My Transaction</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </li>
-                        {% else %}
-                            <li class="nav-item ml-auto"><a class="nav-link" href="#">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-         </nav>
-         {% endif %}
-        <!-- This is Content Section -->
         {% block body_block %}
         {% endblock %}
 
-        {% block footer_block %}
+        <!-- This is JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="{% static 'script/facebook.js' %}"></script>
+        <!-- FOOTER -->
+        {% block footer %}
         {% endblock %}
-        <!-- This is JS Section -->
-        <script src="{% static "js/facebook.js" %}"></script>
-        <script src="{% static "js/app_ajax.js" %}" crossorigin="anonymous"></script>
-        <script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.js"></script>
     </body>
 
 </html>

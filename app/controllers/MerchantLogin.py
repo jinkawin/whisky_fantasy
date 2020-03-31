@@ -21,7 +21,7 @@ def merchantLogin(request):
                     merchant = None
                 if merchant.role == '1':
                     login(request, user)
-                    return redirect(reverse('app:myaccount'))
+                    return redirect(reverse('app:merchant_transaction'))
                 else:
                     return HttpResponse('Please chose Customer Login')
 

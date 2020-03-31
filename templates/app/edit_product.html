@@ -1,24 +1,18 @@
-<!DOCTYPE html>
+
 {% extends 'app/base_mainPage.html' %}
 {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% block head %}
+{% block head %}
     <link rel="stylesheet" href="/static/css/autocomplete.css">
     <style>
         .errorlist li {
             list-style: none;
         }
     </style>
-    {% endblock %}
+{% endblock %}
 
-</head>
-
-<body>
-    {% block body_block %}
-    <div class="container">
+{% block body_block %}
+    <div class="container mt-5">
         <!-- product details -->
         <form class="form-horizontal" role="form" method="post" action="." enctype="multipart/form-data">
             {% csrf_token %}
@@ -89,16 +83,11 @@
 
     </div>
 
-    </div>
-
-    </div>
-    {% endblock %}
-</body>
 {% block footer %}
-<!-- JavaScript -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
-<script src="/static/script/search_location.js/"></script>
+    <!-- JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
+    <script src="/static/script/search_location.js/"></script>
+    {% endblock %}
 {% endblock %}
-</html>

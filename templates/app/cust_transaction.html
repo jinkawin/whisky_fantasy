@@ -1,25 +1,18 @@
 
 {% extends 'app/base_mainPage.html' %}
+{% load static %}
 
-{% block head %}
+  {% block head %}
   <link rel="stylesheet" href="/static/css/productList.css">
-{% endblock %}
+  {% endblock %}
 
-{% block body_block %}
+  {% block body_block %}
   
-<div class="container mt-5">
+  <div class="container mt-5">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
-        <button class="btn btn-switch btn-md active" aria-pressed="true" onclick="location='{% url 'app:product'%}'">
-          <strong>Products</strong>
-        </button>
         <button class="btn btn-md active" aria-pressed="true" type="submit" name="submit">
           <strong>Transactions</strong>
-        </button>
-      </div>
-      <div class="col-md-9 " style="text-align: right;">
-        <button class="btn btn-iso btn-sm active" aria-pressed="true" onclick="location='{% url 'app:add_product'%}'">
-          Add Product
         </button>
       </div>
     </div>
@@ -29,9 +22,10 @@
           <th scope="col">ID</th>
           <th scope="col">Date Time</th>
           <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
           <th scope="col">Quantity</th>
           <th scope="col">Total Amount</th>
-          <th scope="col">Customer ID</th>
+          <th scope="col">Merchant</th>
           <th scope="col">Delivered Address</th>
         </tr>
       </thead>
@@ -42,16 +36,19 @@
           <th scope="row">{{Transaction.id}}</th>
           <td>{{Transaction.trans_time}}</td>
           <td>{{Transaction.whisky.whisky_name}}</td>
+          <td>{{Transaction.trans_price}}</td>
           <td>{{Transaction.trans_quantity}}</td>
           <td>{{Transaction.trans_amount}}</td>
-          <td>{{Transaction.customer}}</td>
+          <td>{{Transaction.merchant}}</td>
           <td>{{Transaction.trans_address.name}}<br/>{{Transaction.trans_address.addressOne}}<br/>
             {{Transaction.trans_address.addressTwo}}<br/>{{Transaction.trans_address.town_city}}<br/>
-            {{Transaction.trans_address.postcode}}<br/>{{Transaction.trans_address.phone}}</td>
+            {{Transaction.trans_address.postcode}}<br/>{{Transaction.trans_address.phone}}
+          </td>
         </tr>
       {% endif %}
       {% endfor %}
       </tbody>
     </table>
   </div>
+
 {% endblock %}

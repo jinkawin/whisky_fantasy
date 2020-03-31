@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('town_city', models.CharField(max_length=40)),
                 ('postcode', models.CharField(max_length=6)),
                 ('phone', models.PositiveIntegerField()),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.Customer')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -51,6 +51,18 @@ class Migration(migrations.Migration):
                 ('merchant_username', models.CharField(max_length=255, unique=True)),
                 ('merchant_password', models.CharField(max_length=255)),
                 ('merchant_email', models.EmailField(max_length=254)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='PaymentInfo',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name_card', models.CharField(max_length=40)),
+                ('cardNo', models.PositiveIntegerField()),
+                ('expiryYear', models.PositiveIntegerField()),
+                ('expiryMonth', models.PositiveIntegerField()),
+                ('cvv', models.PositiveIntegerField()),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -90,6 +102,8 @@ class Migration(migrations.Migration):
                 ('whisky_status', models.IntegerField(default=1)),
                 ('whisky_img_link', models.CharField(blank=True, max_length=255)),
                 ('whisky_img', models.ImageField(blank=True, upload_to='product_images')),
+                ('merchant', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('whisky_location', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.Location', to_field='location_name')),
             ],
             options={
                 'verbose_name_plural': 'Whiskies',

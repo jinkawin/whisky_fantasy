@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Whishy Fantasy</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/frontend_style.css"/>
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
+  <div class="container">
+      <div class="row col-md-12 col-sm-12">
+          <!-- icon+homepage -->
+          <a class="navbar-brand" href="#">Whisky Fantasy</a>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- right side menu -->
+          <ul class="navbar-nav navbar-collapse" id="navbarSupportedContent">
+              <li class="nav-item dropdown ml-auto">
+                  <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false" style="text-align: right;">
+                      Hi, {{user}}
+                  </a>
+                  <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{% url 'app:myaccount'%}">My Account</a>
+                      {% if profile.role == '1' %}
+                      <a class="dropdown-item" href="{% url 'app:merchant_transaction'%}">My Transaction</a>
+                      {% else %}
+                      <a class="dropdown-item" href="{% url 'app:search_by_price'%}">Search Product</a>
+                      <a class="dropdown-item" href="{% url 'app:customer_transaction'%}">My Transaction</a>
+                      {% endif %}
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="{% url 'app:cust_login'%}">Log Out</a>
+      </div>
+      </li>
+      </ul>
+  </div>
+  </div>
+</nav>
+
+{% block body_block %}
+{% endblock %}
+
+<!-- footer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+{% block footer %}
+{% endblock %}
+</body>
+</html>

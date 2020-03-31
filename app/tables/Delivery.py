@@ -1,10 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from app.tables.Customer import Customer
 
 
 class Delivery(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=40)
     addressOne = models.TextField(max_length=100)
     addressTwo = models.TextField(max_length=100, blank=True)
