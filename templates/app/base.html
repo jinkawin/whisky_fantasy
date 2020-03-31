@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-{% load rango_template_tags %}
 
 <html lang="en">
     <!-- This is Header Section -->
@@ -11,22 +10,17 @@
         <title>Whishy Fantasy</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
             integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="frontend_style.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="/static/css/frontend_style.css"/> -->
+        {% block header %}
+        {% endblock %}
     </head>
 
     <!-- This is Body Section -->
-    <body class="container-fluid bg-light">
+    <body>
 
         {% block body_block %}
         {% endblock %}
-
-        <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <span>&copy; 2020 Tango With Django 2 &middot;<a href="#">Privacy</a>&middot;<a href="#">Terms</a></span>
-        </footer>
-
+       
         <!-- This is JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
             integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
@@ -37,6 +31,9 @@
         <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="{% static 'script/facebook.js' %}"></script>
+        <!-- FOOTER -->
+        {% block footer %}
+        {% endblock %}
     </body>
 
 </html>

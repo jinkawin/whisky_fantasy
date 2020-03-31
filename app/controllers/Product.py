@@ -3,9 +3,11 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.utils import timezone
 
 from app.forms.ProductForm import ProductForm
 from app.tables import UserProfile
+from app.tables.Transaction import Transaction
 from app.tables.Whisky import Whisky, Location
 
 import json
@@ -17,22 +19,48 @@ def productList(request):
     product = Whisky.objects.filter(merchant=request.user).order_by('-id')
     print(product)
 
-    return render(request, 'app/product.html', {'product': product,'profile':profile})
+    return render(request, 'app/product.html', {'product': product, 'profile': profile})
 
 
 def search_page(request):
-    product = Whisky.objects.all()
+    product = Whisky.objects.filter(whisky_status = 1).order_by('-whisky_price')
     print(product)
 
     return render(request, 'app/search_by_price.html', {'product': product})
 
 
+def search_product(request):
+    if request.method == 'POST':
+        query = request.POST.get('query')
+        product = Whisky.objects.filter(whisky_name__icontains=query,whisky_status=1)
+        print(product)
+        return render(request, 'app/search_by_price.html', {'product': product})
+
+
 def product_detail(request):
-    profile = UserProfile.objects.get(user=request.user)
     if request.method == 'GET':
+        profile = UserProfile.objects.get(user=request.user)
         product_id = request.GET.get('product_id')
         product = Whisky.objects.get(id=product_id)
-        return render(request, 'app/detail_page.html', {'product': product,'profile':profile})
+        return render(request, 'app/detail_page.html', {'product': product, 'profile': profile})
+    else:
+        product_id = request.POST.get('whisky_id')
+        product = Whisky.objects.get(id=product_id)
+        quantity = request.POST.get('trans_quantity')
+
+        transaction_info = Transaction.objects.create(
+            customer=request.user,
+            whisky=product,
+            merchant=product.merchant.username,
+            trans_price=product.whisky_price,
+            trans_quantity=quantity,
+            trans_amount=product.whisky_price * int(quantity),
+            trans_status=0,
+            trans_time=timezone.now(),
+        )
+        # transaction_info.save()
+        print(transaction_info)
+        return redirect(reverse('app:delivery', kwargs={'trans_id': transaction_info.id}))
 
 
 @login_required
@@ -53,7 +81,7 @@ def addProduct(request):
             print(product.errors)
     else:
         product = ProductForm()
-    return render(request, 'app/add_product.html', {'product': product, 'locations': locations,'profile':profile})
+    return render(request, 'app/add_product.html', {'product': product, 'locations': locations, 'profile': profile})
 
 
 @login_required
@@ -81,7 +109,8 @@ def editProduct(request):
         product = Whisky.objects.get(id=product_id)
         locationObj = Location.objects.all()
         locations = json.dumps([location.location_name for location in locationObj])
-        return render(request, 'app/edit_product.html', {'product': product, 'locations': locations,'profile':profile})
+        return render(request, 'app/edit_product.html',
+                      {'product': product, 'locations': locations, 'profile': profile})
 
 
 @login_required

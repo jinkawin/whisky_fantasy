@@ -1,10 +1,10 @@
-import form
+from django import forms
 
 from app.tables import Delivery
 
 
-class DeliveryForm(form.ModelForm):
+class DeliveryForm(forms.ModelForm):
 
     class Meta:
         model = Delivery
-        fields = '__all__'
+        fields = ('name','addressOne','addressTwo','town_city','postcode','phone')

@@ -22,7 +22,7 @@
 
     }
 
-    .dropdown-item {
+    /* .dropdown-item {
       border-collapse: collapse;
       border-bottom: 1px solid #707070;
       text-align: right;
@@ -31,16 +31,16 @@
 
     .dropdown-item:last-child {
       border-bottom: none;
-    }
+    } */
 
-    .container {
+    /* .container {
       align-items: center;
       width: auto;
       padding: 0px;
       border: 0px;
       margin-top: 50px;
 
-    }
+    } */
 
     .row.no-gutter {
       margin-left: 0;

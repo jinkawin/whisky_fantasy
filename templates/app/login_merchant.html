@@ -1,22 +1,19 @@
-<!DOCTYPE html>
+
 {% extends 'app/base.html' %}
 {% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+{% block header %}       
+<link href="https://getbootstrap.com/docs/4.2/examples/sign-in/signin.css" rel="stylesheet">
+{% endblock %}
 
-</head>
-
-<body>
     {% block body_block %}
     <!-- head bar -->
-    <div class="container" style="width: 600px;">
+    <div class="container" >
         <div class="row" style="background-color:black;height: 90px;border-radius: 5px;">
             <h2 class="col-md-12 text-center" style="padding-top: 25px;color:#D29062;">Whisky Fantasy</h2>
         </div>
         <!-- login form -->
-        <div class="row" style="background-color:white;">
+        <div class="row" style="background-color:white;height: 450px;">
             <form class="form-signin" role="form" method="post" action="{% url 'app:merchant_login' %}" >
                 {% csrf_token %}
                 <div class="btn-group btn-group-sm" style="width: inherit;">
@@ -49,6 +46,3 @@
     </div>
 
     {% endblock %}
-</body>
-
-</html>

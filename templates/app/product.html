@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-{% extends 'app/base_mainPage.html' %}
-{% load static %}
-<html lang="en">
 
-<head>
-  <!-- meta tages-->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Product</title>
+{% extends 'app/base_mainPage.html' %}
+
   {% block head %}
   <link rel="stylesheet" href="/static/css/productList.css">
     <!-- add new class tag 'off' to be easily get the clicked button-->
@@ -16,12 +9,10 @@
   .edit{}
 </style>
   {% endblock %}
-</head>
 
-<body>
   {% block body_block %}
   <!-- web tabs -->
-  <div class="container">
+  <div class="container mt-5">
     <div class="row no-gutters">
       <div class="btn-group col-md-3">
         <button class="btn btn-md active" aria-pressed="true">
@@ -46,16 +37,17 @@
           <div class="col-md-3">
             <img src="/media/{{Whisky.whisky_img}}" alt="No pictures" style="width: 100px;height: 100px;">
           </div>
-          <div class="col-md-7" style="background-color:">
+          <div class="col-md-7" >
             <h6 class="my-0">{{Whisky.whisky_name}}</h6>
-            <small class="text-muted">{{Whisky.whisky_description}}</small><br><br>
+            <small class="text-muted">{{Whisky.whisky_description}}</small><br>
+            <p class="my-0 pt-2">Quantity:{{Whisky.whisky_quantity}}</p>
             <strong>£{{Whisky.whisky_price}}</strong>
           </div>
           <div class="col-md-2 ">             
               {% if Whisky.whisky_status == 2 %}
               <p id="flag{{Whisky.id}}">Removed</p>
               {% else %}
-              <button class="btn btn-switch btn-md active" id="edit{{Whisky.id}}" style="margin-bottom: 10px;width: 100px;"
+              <button class="btn btn-switch btn-md active mb-2" id="edit{{Whisky.id}}" style="width: 100px;"
                 onclick="location='{% url 'app:edit_product'%}?product_id={{Whisky.id}}'">Edit</button><br>
               <button class="btn btn-switch btn-md active off" style="width: 100px;" data-id="{{Whisky.id}}" data-status="2">Remove</button>
               <p id="flag{{Whisky.id}}"></p>
@@ -74,4 +66,3 @@
 <!-- JavaScript -->
 <script src="/static/script/remove_product.js/"></script>
 {% endblock %}
-</html>
