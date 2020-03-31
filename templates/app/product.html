@@ -35,7 +35,12 @@
 
         <li class="list-group-item d-flex justify-content-between lh-condensed" id="{{Whisky.id}}">
           <div class="col-md-3">
+            {% if Whisky.whisky_img %}
             <img src="/media/{{Whisky.whisky_img}}" alt="No pictures" style="width: 100px;height: 100px;">
+            {% else %}
+            <img src="/static/images/product.png" alt="No pictures" style="width: 70px;height: 100px;">
+            
+            {% endif %}
           </div>
           <div class="col-md-7" >
             <h6 class="my-0">{{Whisky.whisky_name}}</h6>

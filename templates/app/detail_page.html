@@ -8,23 +8,31 @@
     <br />
     <div class="container">
         <div class="row">
-            <div class="col-md-3" style="height: 400px; width: 400px; border: 1px solid red;">
-                <img src="/media/{{product.whisky_img}}/"
-                    class="img-fluid mx-auto d-block" />
+            <div class="col-md-3" style="height: 400px; width: 400px; border: 1px solid gainsboro;">
+                {% if product.whisky_img %}
+                <img src="/media/{{product.whisky_img}}/" class="img-fluid mx-auto d-block" />
+                {% else %}
+                <img src="/static/images/product.png/" class="img-fluid mx-auto d-block"/>
+                {% endif %}
+                
             </div>
             <div class="col-md-9">
                 <h1 class="row col-md-12">{{product.whisky_name}}</h1>
                 <br />
-                <div class="row col-md-12">
-                    Sold by <a href="#" class="pl-5">{{product.merchant}}</a>
+                <div class="row ">
+                    <p class="col-md-2">Sold by:</p>
+                     <a href="#" class="col-md-10">{{product.merchant}}</a>
                 </div>
-                <p class="row col-md-12">{{product.whisky_description}}</p>
+                <div class="row ">
+                    <p class="col-md-2">Description:</p>
+                    <p class="col-md-10">{{product.whisky_description}}</p>
+                </div>
+                
                 <br />
                 <div class="row">
                     <p class="col-md-2">Origin:</p>
                     <p class="col-md-10">{{product.whisky_location.location_name}}</p>
                 </div>
-                <br />
 
                 <form method="POST" action=".">
                     {% csrf_token %}
@@ -36,7 +44,7 @@
                             <input type="number" class="form-control" id="quantity" name="trans_quantity" value="1" min="0" max="{{product.whisky_quantity}}"
                                 step="1" />
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <button type="submit" class="btn btn-primary float-right" >Buy Now</button>
                         </div>
                     </div>

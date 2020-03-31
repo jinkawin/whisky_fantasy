@@ -2,7 +2,6 @@
 {% block body_block %}
 
 <body class="bg-light">
-
     <!-- Main Content -->
     <br />
     <div class="container">
@@ -10,8 +9,9 @@
         <br />
         <form method="POST" action=".">
             {% csrf_token %}
+
             <div class="row form-group">
-                <label for="cardName" class="col-md-3 col-form-label">Name on Card: *</label>
+                <label for="cardName" class="col-md-3 col-form-label">*Name on Card:</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control" id="cardName" name="name_card" placeholder="Name"
                         required />
@@ -27,7 +27,7 @@
             </div>
 
             <div class="row form-group">
-                <label for="addressLine2" class="col-md-3 col-form-label">Expiry Date: *</label>
+                <label for="expiryDate" class="col-md-3 col-form-label">Expiry Date: *</label>
                 <div class="col-md-9">
                     <div class="row col-md-12">
                         <input type="text" class="form-control col-md-2" name="expiryMonth" placeholder="MM" required />
@@ -48,8 +48,7 @@
             <div class="row">
                 <div class="col-md-10"></div>
                 <div class="col-md-1">
-                    <button type="submit" class="btn btn-primary float-right" href="" data-toggle="modal"
-                        data-target="#exampleModal">Pay</button>
+                    <button type="submit" class="btn btn-primary float-right" href="" >Pay</button>
                 </div>
                 <div class="col-md-1">
                     <a type="reset" class="btn btn-light float-right"
@@ -60,25 +59,4 @@
         {{payment_form.errors}}
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Payment Status</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-success">
-                    Payment Successful.
-                </div>
-                <div class="modal-footer">
-                    <a type="button" class="btn btn-primary" href="search_by_price.html">Home Page</a>
-                    <a type="button" class="btn btn-secondary" href="#">View My Transaction</a>
-                </div>
-            </div>
-        </div>
-    </div>
     {% endblock %}

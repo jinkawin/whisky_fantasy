@@ -1,4 +1,4 @@
-from .Index import index
+
 from .Logout import user_logout
 from .FacebookLogin import facebookLogin
 from .TwitterLogin import twitterLogin

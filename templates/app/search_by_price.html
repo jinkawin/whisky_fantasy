@@ -19,36 +19,34 @@
                   <li class="nav-item">
                       <a class="nav-link active" href="{% url 'app:search_by_price'%}">Price</a>
                   </li>
-                  <li class="nav-item disabled">
-                      <a class="nav-link disabled">|</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="search_by_location.html">Location</a>
-                  </li>
             </ul>
         </div>
 
         <!-- Main Content -->
         <br />
-        <div class="container bg-white" style="border:1px solid coral;">
+        <div class="container bg-white" >
             <!-- Product 1 -->
             {% for Whisky in product %}
             <div class="row  col-md-12">
-                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
+                <div class="col-md-offset-1 col-md-2" style="height: 100px; width: 100px;">
+                    {% if Whisky.whisky_img %}
                     <img src="/media/{{Whisky.whisky_img}}/"
-                        class="img-fluid"/>
+                        class="img-fluid" style="height: 100px; width: 80px;"/>
+                    {% else %}
+                    <img src="/static/images/product.png/"
+                        class="img-fluid" style="height: 100px; width: 80px;"/>
+                    {% endif %}
                 </div>
                 <div class="col-md-9 ml-auto">
                     <div class="row">
                         <a href="{% url 'app:product_details'%}?product_id={{Whisky.id}}" class="col-md-12">{{Whisky.whisky_name}}</a>
                     </div>
                     <div class="row">
-                        <p class="col-md-12">{{Whisky.whisky_description}}</p>
-                    </div>
-                    <div class="row">
-                        <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
+                        <p class="col-md-9">{{Whisky.whisky_description}}</p>
+                        <p class="col-md-3 text-right" style="font-size: 20px; font-weight: bold;">
                             £ {{ Whisky.whisky_price }}
                         </p>
+                        
                     </div>
                 </div>
             </div>

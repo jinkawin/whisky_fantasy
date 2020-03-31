@@ -1,20 +1,30 @@
+# Import External Libraries
+import json
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils import timezone
 
+# Import Internal Libraries
 from app.forms.ProductForm import ProductForm
 from app.tables import UserProfile
 from app.tables.Transaction import Transaction
 from app.tables.Whisky import Whisky, Location
 
-import json
-
+'''
+Overview:
+    productList:    list out all the Whisky [Merchant]
+    search_page:    Sort all Whisky according to the Price in ascending order [Customer]
+    search_product: render product list for search page when searching for some products [Customer]
+    product_detail: render product detail page for the specific Whisky [Customer]
+    addProduct:     to add new whisky for sale [Merchant]
+    editProduct:    to edit the existing whisky for sale [Merchant]
+    set_status:     void the existing Whisky [Merchant], product become unavailable for sale
+'''
 
 @login_required
-def productList(request):
+def productList(request):  # render product list for merchant
     profile = UserProfile.objects.get(user=request.user)
     product = Whisky.objects.filter(merchant=request.user).order_by('-id')
     print(product)
@@ -22,22 +32,22 @@ def productList(request):
     return render(request, 'app/product.html', {'product': product, 'profile': profile})
 
 
-def search_page(request):
-    product = Whisky.objects.filter(whisky_status = 1).order_by('-whisky_price')
+def search_page(request):  # render product list for search page
+    product = Whisky.objects.filter(whisky_status=1).order_by('whisky_price')
     print(product)
 
     return render(request, 'app/search_by_price.html', {'product': product})
 
 
-def search_product(request):
+def search_product(request):  # render product list for search page when searching for some products
     if request.method == 'POST':
         query = request.POST.get('query')
-        product = Whisky.objects.filter(whisky_name__icontains=query,whisky_status=1)
+        product = Whisky.objects.filter(whisky_name__icontains=query, whisky_status=1)
         print(product)
         return render(request, 'app/search_by_price.html', {'product': product})
 
 
-def product_detail(request):
+def product_detail(request):  # render product details when browsing a single product
     if request.method == 'GET':
         profile = UserProfile.objects.get(user=request.user)
         product_id = request.GET.get('product_id')
@@ -48,6 +58,7 @@ def product_detail(request):
         product = Whisky.objects.get(id=product_id)
         quantity = request.POST.get('trans_quantity')
 
+        # create a transaction when post a request and reverse to next page
         transaction_info = Transaction.objects.create(
             customer=request.user,
             whisky=product,
@@ -58,8 +69,6 @@ def product_detail(request):
             trans_status=0,
             trans_time=timezone.now(),
         )
-        # transaction_info.save()
-        print(transaction_info)
         return redirect(reverse('app:delivery', kwargs={'trans_id': transaction_info.id}))
 
 
