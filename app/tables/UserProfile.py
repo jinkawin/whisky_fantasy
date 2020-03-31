@@ -20,7 +20,7 @@ class UserProfile(models.Model):
     cust_fb_id = models.CharField(max_length=TEXT_MAX_LENGTH, blank=True, null=True)
     cust_tw_id = models.CharField(max_length=TEXT_MAX_LENGTH, blank=True, null=True)
     role = models.CharField(max_length=1, choices=(('0', 'customer'), ('1', 'merchant')))
-    picture_img_link = models.CharField(max_length=TEXT_MAX_LENGTH, blank=True)
+    picture_img_link = models.CharField(max_length=TEXT_MAX_LENGTH, blank=True, null=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
     def __str__(self):
