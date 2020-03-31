@@ -23,7 +23,7 @@
           <strong>Transactions</strong>
         </button>
       </div>
-      
+
       <div class="col-md-9 " style="text-align: right;">
         <button class="btn btn-iso btn-sm active" aria-pressed="true" onclick="location='{% url 'app:add_product'%}'">
           Add Product
@@ -43,7 +43,7 @@
             <p class="my-0 pt-2">Quantity:{{Whisky.whisky_quantity}}</p>
             <strong>£{{Whisky.whisky_price}}</strong>
           </div>
-          <div class="col-md-2 ">             
+          <div class="col-md-2 ">
               {% if Whisky.whisky_status == 2 %}
               <p id="flag{{Whisky.id}}">Removed</p>
               {% else %}
@@ -59,9 +59,8 @@
       </ul>
     </div>
   </div>
-
 {% endblock %}
-</body>
+
 {% block footer %}
 <!-- JavaScript -->
 <script src="/static/script/remove_product.js/"></script>

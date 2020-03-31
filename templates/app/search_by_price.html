@@ -2,57 +2,64 @@
 {% load staticfiles %}
 
 {% block body_block %}
-      <!-- search bar & button -->
-    <div class="container mt-5 "  id="navbarSupportedContent">
-        <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:search_product' %}">
-          {% csrf_token %}
-          <input class="form-control col-md-5" type="search" name="query" id="query" value="" />
-          <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
-        </form>
-    </div>
-        <!-- Sort Bar -->
-        <div class="container">
-            <ul class="nav nav-tabs justify-content-end">
-                <li class="nav-item disabled">
-                    <a class="nav-link disabled">Sort By:</a>
-                </li>
-                  <li class="nav-item">
-                      <a class="nav-link active" href="{% url 'app:search_by_price'%}">Price</a>
-                  </li>
-                  <li class="nav-item disabled">
-                      <a class="nav-link disabled">|</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="search_by_location.html">Location</a>
-                  </li>
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <br />
-        <div class="container bg-white" style="border:1px solid coral;">
-            <!-- Product 1 -->
-            {% for Whisky in product %}
-            <div class="row  col-md-12">
-                <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
-                    <img src="/media/{{Whisky.whisky_img}}/"
-                        class="img-fluid"/>
-                </div>
-                <div class="col-md-9 ml-auto">
-                    <div class="row">
-                        <a href="{% url 'app:product_details'%}?product_id={{Whisky.id}}" class="col-md-12">{{Whisky.whisky_name}}</a>
-                    </div>
-                    <div class="row">
-                        <p class="col-md-12">{{Whisky.whisky_description}}</p>
-                    </div>
-                    <div class="row">
-                        <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
-                            £ {{ Whisky.whisky_price }}
-                        </p>
-                    </div>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="w-75 ml-3">
+                <input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
             </div>
-            <hr class="row"/>
-            {% endfor %}
-        </div>
+            <div class="sidebar-sticky" id="categories-listing">
+                {% block sidebar_block %}
+                    {% get_category_list category %}
+                {% endblock %}
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9  ml-sm-auto col-lg-10 px-4">
+            <!-- search bar & button -->
+            <div class="container mt-5 "  id="navbarSupportedContent">
+                <form class="form-inline ml-auto" id="" method="post" action="{% url 'app:search_product' %}">
+                  {% csrf_token %}
+                  <input class="form-control col-md-5" type="search" name="query" id="query" value="" />
+                  <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
+                </form>
+            </div>
+
+            <!-- Main Content -->
+            <br />
+            <div class="container bg-white" style="border:1px solid coral;">
+                <!-- Product 1 -->
+                {% for Whisky in product %}
+                <div class="row  col-md-12">
+                    <div class="col-md-offset-1 col-md-2" style="height: 155px; width: 265px;">
+                        <img src="/media/{{Whisky.whisky_img}}/"
+                            class="img-fluid"/>
+                    </div>
+                    <div class="col-md-9 ml-auto">
+                        <div class="row">
+                            <a href="{% url 'app:product_details'%}?product_id={{Whisky.id}}" class="col-md-12">{{Whisky.whisky_name}}</a>
+                        </div>
+                        <div class="row">
+                            <p class="col-md-12">{{Whisky.whisky_description}}</p>
+                        </div>
+                        <div class="row">
+                            <p class="col-md-12 text-right" style="font-size: 20px; font-weight: bold;">
+                                £ {{ Whisky.whisky_price }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="row"/>
+                {% endfor %}
+            </div>
+
+            <br />
+            <!-- FOOTER -->
+            <footer>
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <span>&copy; 2020 Tango With Django 2 &middot;<a href="#">Privacy</a>&middot;<a href="#">Terms</a></span>
+            </footer>
+        </main>
+    </div>
+</div>
 {% endblock %}

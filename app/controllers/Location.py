@@ -8,7 +8,7 @@ from django.urls import reverse
 
 from app.tables.Location import Location
 
-
+# location data will search through the data populated within JSON data file
 def searchLocation(request):
     response_data = {}
 

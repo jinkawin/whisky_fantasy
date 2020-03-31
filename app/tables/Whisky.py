@@ -1,9 +1,11 @@
+# Import External Libraries
 from django.contrib.auth.models import User
 from django.db import models
-
+# Assign Internal Linkage Models
 from app.tables.Location import Location
 from app.tables.WhiskyList import WhiskyList
 
+# Whisky Model is used to store the product details of the Whisky
 class Whisky(models.Model):
     '''
     Variables:
@@ -37,4 +39,4 @@ class Whisky(models.Model):
         verbose_name_plural = 'Whiskies'
 
     def __str__(self):
-        return self.name
+        return self.whisky_name

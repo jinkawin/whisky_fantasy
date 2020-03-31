@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from app.forms.ProductForm import ProductForm
-from app.tables import UserProfile
+from app.tables import UserProfile, WhiskyList
 from app.tables.Transaction import Transaction
 from app.tables.Whisky import Whisky, Location
 from django.views import View
@@ -16,13 +16,12 @@ import json
 
 '''
 Overview:
-
-def productList
-def searchPrice
-def prodecut_detail
-def addProduct
-def editProduct
-def set_status
+    def productList
+    def searchPrice
+    def prodecut_detail
+    def addProduct
+    def editProduct
+    def set_status
 '''
 
 @method_decorator(login_required)
@@ -139,6 +138,34 @@ def set_status(request):
     product.save()
     return render(request, 'app/product.html', {'id': product_id, 'status': status})
 
+######################################################################################################
+class ShowCategoryView(View):
+    def create_context_dict(self, category_name_slug):
+        context_dict = {}
+        try:
+            category = WhiskyList.objects.get(slug=category_name_slug)
+            pages = Whisky.objects.filter(category=category).order_by('-views')
+
+            context_dict['whisky'] = pages
+            context_dict['whisky_list'] = category
+        except WhiskyList.DoesNotExist:
+            context_dict['whisky'] = None
+            context_dict['whisky_list'] = None
+        return context_dict
+
+    def get(self, request, category_name_slug):
+        context_dict = self.create_context_dict(category_name_slug)
+        return render(request, 'app/category.html', context_dict)
+
+    @method_decorator(login_required)
+    def post(self, request, category_name_slug):
+        context_dict = self.create_context_dict(category_name_slug)
+        query = request.POST['query'].strip()
+        if query:
+            context_dict['result_list'] = run_query(query)
+            context_dict['query'] = query
+        return render(request, 'app/category.html', context_dict)
+
 class SearchPrice(View):
     def create_context_dict(self, whisky_name_slug):
         context_dict = {}
@@ -153,14 +180,22 @@ class SearchPrice(View):
         context_dict = self.create_context_dict(category_name_slug)
         return render(request, 'app/search_by_price.html', context_dict)
 
+class CategorySuggestionView(View):
+    def get(self, request):
+        if 'suggestion' in request.GET:
+            suggestion = request.GET['suggestion']
+        else:
+            suggestion = ''
+        category_list = get_category_list(max_results=8, starts_with=suggestion)
+        if len(category_list) == 0:
+            category_list = WhiskyList.objects.order_by('-views')
+        return render(request, 'app/search_by_price.html', {'categories': category_list})
+
 def get_category_list(max_results=0, starts_with=''):
     category_list = []
-
     if starts_with:
-        category_list = Category.objects.filter(name__istartswith=starts_with)
-
+        category_list = WhiskyList.objects.filter(name__istartswith=starts_with)
     if max_results > 0:
         if len(category_list) > max_results:
             category_list = category_list[:max_results]
-
     return category_list

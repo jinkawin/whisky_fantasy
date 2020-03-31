@@ -138,3 +138,8 @@ LOGIN_URL = 'cust_login'
 # Media - uploaded by user
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+AUTHENTICATION_BACKENDS = [
+    "django_auth_ldap.backend.LDAPBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
