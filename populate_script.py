@@ -3,54 +3,82 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'whisky_fantasy.settings')
 
 import django
 django.setup()
-from app.models import Whisky
+from app.models import Whisky, WhiskyList
 
 def populate():
-    python_pages = [
-        {'title': 'Official Python Tutorial',
-        'url': 'http://docs.python.org/3/tutorial/',
-        'views': 7 },
-        {'title': 'How to Think like a Computer Scientist',
-        'url': 'http://www.greenteapress.com/thinkpython/',
-        'views': 5 },
-        {'title': 'Learn Python in 10 Minutes',
-        'url': 'http://www.korokithakis.net/tutorials/python/',
-        'views': 9}
+    whiskies_scotland = [
+        {
+            'name': 'Aberfeldy Single Malt Scotch Whisky',
+            'description': 'Combination of Sweetness, Smoky, Honey, Spicy, Winey, Nutty, Malty, Fruity and Floral',
+            'location': 'Aberfeldy, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Balblair Single Malt Scotch Whisky',
+            'description': 'Combination of Sweetness, Honey, Winey, Nutty, Malty, Fruity and Floral',
+            'location': 'Balblair, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Caol Ila 12 Year Old Single Malt Whisky',
+            'description': 'Combination of Sweetness, Malty, Fruity and Floral',
+            'location': 'Port Askaig, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Dailuaine 16 Year Old, Flora & Fauna',
+            'description': 'Combination of Sweetness, Fruity and Floral',
+            'location': 'Strathspey, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Edradour 10 Year Old Highland Single Malt Scotch Whisky',
+            'description': 'Combination of Sweetness, Smoky, Medicinal, Honey, Fruity and Floral',
+            'location': 'Pitlochry, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Glen Garioch 18 Year Old Scotch Whisky',
+            'description': 'Combination of Sweetness, Smoky, Nutty, Malty, Fruity and Floral',
+            'location': 'Inverurie, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
     ]
 
-    django_pages = [
-        {'title': 'Official Django Tutorial',
-        'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',
-        'views': 12 },
-        {'title': 'Django Rocks',
-        'url': 'http://www.djangorocks.com/',
-        'views': 14 },
-        {'title': 'How to Tango with Django',
-        'url': 'http://www.tangowithdjango.com/',
-        'views': 16 }
+    whiskies_ireland = [
+        {
+            'name': 'Hberfeldy Single Malt Scotch Whisky',
+            'description': 'Combination of Sweetness, Smoky, Honey, Spicy, Winey, Nutty, Malty, Fruity and Floral',
+            'location': 'Aberfeldy, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Ialblair Single Malt Scotch Whisky',
+            'description': 'Combination of Sweetness, Honey, Winey, Nutty, Malty, Fruity and Floral',
+            'location': 'Balblair, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
+        {
+            'name': 'Jaol Ila 12 Year Old Single Malt Whisky',
+            'description': 'Combination of Sweetness, Malty, Fruity and Floral',
+            'location': 'Port Askaig, Scotland',
+            'quantity': 4,
+            'price': 12.50,
+        },
     ]
-
-    other_pages = [
-        {'title': 'Bottle',
-        'url': 'http://bottlepy.org/docs/dev/',
-        'views': 3},
-        {'title': 'Flask',
-        'url': 'http://flask.pocoo.org',
-        'views': 5}
-    ]
-
-    no_pages = []
+    no_whisky = []
 
     cats = {
-        'Python': {'pages': python_pages, 'views': 128, 'likes': 64},
-        'Django': {'pages': django_pages, 'views': 64, 'likes': 32},
-        'Other Frameworks': {'pages': other_pages, 'views': 32, 'likes': 16},
-        'Pascal': {'pages': no_pages, 'views': 0, 'likes': 0},
-        'Perl': {'pages': no_pages, 'views': 0, 'likes': 0},
-        'PHP': {'pages': no_pages, 'views': 0, 'likes': 0},
-        'Prolog': {'pages': no_pages, 'views': 0, 'likes': 0},
-        'PostScript': {'pages': no_pages, 'views': 0, 'likes': 0},
-        'Programming': {'pages': no_pages, 'views': 0, 'likes': 0},
+        'Scotland': {'pages': whiskies_scotland, 'views': 128},
+        'Northern Ireland': {'pages': whiskies_ireland, 'views': 64},
     }
 
     # If you want to add more categories or pages,
@@ -59,23 +87,31 @@ def populate():
     # The code below goes through the cats dictionary, then adds each category,
     # and then adds all the associated pages for that category
     for cat, cat_data in cats.items(): # calling add_cat() and add_page() functions repeatedly
-        c = add_cat(cat, cat_data['views'], cat_data['likes'])
+        c = add_cat(cat, cat_data['views'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'], p['views'])
+            add_page(c, p['name'], p['description'], p['location'], p['quantity'], p['price'])
 
     # Print out the categories we have added.
-    for c in Category.objects.all():
-        for p in Page.objects.filter(category=c):
+    for c in WhiskyList.objects.all():
+        for p in Whisky.objects.filter(whisky=c):
             print(f'- {c}: {p}')
 
-def add_whisky(cat, title, url, views=0):
-    p = Whisky.objects.get_or_create(category=cat,title=title)[0]
-    p.url=url
-    p.views=views
+def add_whisky(cat, name, description, location, quantity, price):
+    p = Whisky.objects.get_or_create(whiskylist=cat, name=name)[0]
+    p.description=url
+    p.location=views
+    p.quantity=quantity
+    p.price=price
     p.save()
     return p
 
+def add_whiskylist(name, views):
+    c = WhiskyList.objects.get_or_create(name=name)[0]
+    c.views=views
+    c.save()
+    return c
+
 # Start execution here!
 if __name__ == '__main__':
-    print('Starting Rango population script...')
+    print('Starting Rango Population Script...')
     populate()

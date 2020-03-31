@@ -19,11 +19,41 @@
 
     <!-- This is Body Section -->
     <body>
-        <div>
-            <!-- This is Content Section -->
-            {% block body_block %}
-            {% endblock %}
-        </div>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flux">
+            <div class="container">
+                <div class="row col-md-12">
+                    <!-- icon+homepage -->
+                    <a class="navbar-brand" href="{% url 'app:index' %}">Whisky Fantasy</a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- right side menu -->
+                    <ul class="navbar-nav navbar-collapse"  id="navbarSupportedContent">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item dropdown ml-auto">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"  style="text-align: right;">
+                                Hi,{{ user }}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'app:myaccount' %}">My Account</a>
+                                <a class="dropdown-item" href="{% url '' %}">My Transaction</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'auth_logout' %}?next=/app/">Log Out</a>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Register Here</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+         </nav>
+        <!-- This is Content Section -->
+        {% block body_block %}
+        {% endblock %}
 
         <!-- This is JS Section -->
         <script src="{% static "js/facebook.js" %}"></script>
